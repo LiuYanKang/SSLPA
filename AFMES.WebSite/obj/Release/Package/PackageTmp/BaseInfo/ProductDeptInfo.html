@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="ProductDeptInfo.js"></script>
+</head>
+<body>
+    <form id="form1">
+        <div style="padding:20px;">
+            <input name="EmpID" class="mini-hidden" />
+            <table class="form">
+                <tr>
+                    <th>代　　码：</th>
+                    <td>
+                        <input id="PDCode" name="PDCode" class="mini-textbox" emptytext="请输入产品部门代码" style="width: 120px;" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>名　　称：</th>
+                    <td>
+                        <input name="Name" class="mini-textbox" emptytext="请输入名称" style="width: 120px;" required="true" />
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center; padding: 10px;">
+                <a class="mini-button" id="btnOk" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

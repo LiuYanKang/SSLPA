@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="lib/boot.js"></script>
+    <script>
+
+        $.page_load = function () {
+            load_Data();
+        }
+
+        function load_Data() {
+
+
+
+            $.srv("LPA", "CheckExpired", {
+
+                success: function (result) {
+                    alert(result.Data)
+                }
+
+            })
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <!--<div> <table border="0" cellpadding="0" cellspacing="0" width="100 % " style="font - size: 13px; color:#333; line-height:20px "><tbody>< tr >< td > <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: none; border - collapse: collapse; "><tbody><tr><td style="padding: 10px 0; border: none; vertical - align: middle; "><strong style="font - size: 16px">LPA</strong></td></tr></ tbody > </table> <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border - collapse: collapse; background - color: #fff; border: 1px solid #cfcfcf; box-shadow: 0 0px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px; font-size:13px;"><tbody>< tr >< td ><table cellpadding="0" cellspacing="0" style="width: 100 %; border: none; border - collapse: collapse; "><tbody><tr><td style="padding: 10px; background - color: #F8FAFE; border: none; font-size: 14px; font-weight: 500; border-bottom: 1px solid #e5e5e5;">2017-09-19</td><td style="width: 40px; text - align: right; background - color: #F8FAFE; border: none; vertical-align: top; padding: 10px; border-bottom: 1px solid #e5e5e5;"><a href="http://lpa.seeksoft.com/" target="_blank">http://lpa.seeksoft.com/</a></td></tr></tbody></table></td></tr><tr><td style="padding: 10px; border: none; "><h5 style="margin: 8px 0; font - size: 14px; ">今日执行计划</h5><table cellpadding="0" cellspacing="0" style="width: 100 %; border: 1px solid #e5e5e5; margin-bottom: 15px; border-collapse: collapse; font-size: 13px;"><tbody><tr><th style="width: 50px; border: 1px solid #e5e5e5; background-color: #f5f5f5; padding: 5px;">ID</th><th style="border: 1px solid #e5e5e5; background-color: #f5f5f5; padding: 5px;">问题列表</th> </tr><tr><td style="padding: 5px; text - align: center; border: 1px solid #e5e5e5;">54,data[j].EmpID</td><td style="padding: 5px; border: 1px solid #e5e5e5;"><a href="http://mes.seekersoft.cn/zentao/bug-view-54.html" target="_blank">十元扫码数据等不正确,data[j].EmpName</a></td></tr><tr><td style="padding: 5px; text - align: center; border: 1px solid #e5e5e5;">54,data[j].EmpID</td><td style="padding: 5px; border: 1px solid #e5e5e5;"><a href="http://mes.seekersoft.cn/zentao/bug-view-54.html" target="_blank">十元扫码数据等不正确,data[j].EmpName</a></td></tr></tr></tbody>  </table> </td></tr> </tbody></table></ td ></tr></tbody></table></div>-->
+
+    <div>
+
+    </div>
+
+</body>
+</html>

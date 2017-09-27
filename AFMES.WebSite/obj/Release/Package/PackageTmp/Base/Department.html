@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新增职员</title>
+    <script src="../lib/boot.js"></script>
+    <link href="../lib/webloader/webuploader.css" rel="stylesheet" />
+    <script src="../lib/webloader/webuploader.js"></script>
+    <script src="Department.js"></script>
+</head>
+<body>
+    <form id="form1" method="post" enctype="multipart/form-data">
+        <input name="PID" id="PID" class="mini-hidden" />
+        <input name="DeptID" id="DeptID" class="mini-hidden" />
+        <div style="padding: 20px;">
+            <table class="form">
+                <tr>
+                    <th style="width:80px;">上级部门：</th>
+                    <td style="width: 180px;">
+                        <input id="txtParentName" name="PName" class="mini-textbox" style="width: 160px;" readonly="readonly"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 80px;">部门名称：</th>
+                    <td style="width: 180px;">
+                        <input id="Name" name="Name" class="mini-textbox" style="width: 160px;" emptytext="请输入部门名称"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 80px;">部门经理：</th>
+                    <td style="width: 180px;">
+                        <input id="txtManagerIdID" name="ManagerId" class="mini-buttonedit" width="160" inputstyle="text-align:left;" emptytext="请选择部门经理"
+                               onbuttonclick="onChooseEmp" allowinput="false" showclose="true" oncloseclick="mini.onCloseClick" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>备注：</th>
+                    <td>
+                        <input id="Remark" name="Remark" class="mini-textbox" style="width: 160px;"  emptytext="请输入备注" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>序号：</th>
+                    <td>
+                        <input id="SN" name="SN" changeOnMousewheel="false" style="width: 160px;"  class="mini-spinner" minValue="1" required="true" />
+                    </td>
+                </tr>
+            </table>
+
+            <div style="text-align: center; padding: 10px;">
+                <a class="mini-button" onclick="onOk" style="width: 80px; margin-right: 20px;"><i class="icon-ok green icon-large"></i>保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i>取消</a>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

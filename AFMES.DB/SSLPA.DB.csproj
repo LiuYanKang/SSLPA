@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E292958-CC64-41BF-A567-D2A6A5E340B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SSLPA.DB</RootNamespace>
+    <AssemblyName>SSLPA.DB</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Action.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActionPlan.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AFMESModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AFMESModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AFMESModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AFMESModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AFMESModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Area.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AreaMachineMap.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditItem.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EHS.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpAuditArea.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LineMachineMap.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LPAActionResult.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Machine.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MachineEHS.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanAreaMap.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Problem.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProblemLog.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProblemPic.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDept.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductLine.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weather.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkProcess.cs">
+      <DependentUpon>AFMESModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="AFMESModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AFMESModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AFMESModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AFMESModel.edmx</DependentUpon>
+      <LastGenOutput>AFMESModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="AFMESModel.edmx.diagram">
+      <DependentUpon>AFMESModel.edmx</DependentUpon>
+    </None>
+    <None Include="AFMESModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AFMESModel.edmx</DependentUpon>
+      <LastGenOutput>AFMESModel.cs</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

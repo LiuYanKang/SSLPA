@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>字典</title>
+    <script src="../lib/boot.js"></script>
+    <script src="Dic.js"></script>
+</head>
+<body>
+    <form id="form1" method="post">
+        <div class="mini-splitter" style="width:100%;height:100%;">
+            <div size="455px">
+                <div class="mini-toolbar" style="height:34px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="text-align:right;">
+                                <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width:150px;" onenter="search" />
+                                <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="mini-fit">
+                    <div id="dgleft" class="mini-datagrid" style="width:100%;height:100%;" fitcolumns="false"
+                         onbeforeload="dg_BeforeLoad" onselectionchanged="dgl_selectionchanged" showpager="false" sortfield="DicCode" sortorder="asc">
+                        <div property="columns">
+                            <div type="indexcolumn" width="50" headeralign="center">序号</div>
+                            <div field="DicCode" width="80" headeralign="center" align="center">代码</div>
+                            <div field="Name" width="120" headeralign="center">名称</div>
+                            <div field="Remark" width="200" headeralign="center">备注</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="mini-toolbar" style="height:34px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <a class="mini-button" onclick="onAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                                <a class="mini-button" onclick="onRemove"><i class="icon-trash brown icon-large"></i> 删除</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="mini-fit">
+                    <div id="dgright" class="mini-datagrid" style="width:100%;height:100%;" fitcolumns="false"
+                         showpager="false" onbeforeload="dgr_BeforeLoad" allowcelledit="true" allowcellselect="true" multiselect="true"
+                         editnextonenterkey="true" oncellendedit="dgr_cellendedit" oncellbeginedit="OnCellBeginEdit" sortfield="Code" sortorder="asc">
+                        <div property="columns">
+                            <div type="indexcolumn" width="50" headeralign="center">序号</div>
+                            <div field="Code" name="code" width="80" headeralign="center" align="center">
+                                代码
+                                <input property="editor" class="mini-textbox" style="width:100%;" />
+                            </div>
+                            <div field="Name" width="120" headeralign="center">
+                                名称
+                                <input property="editor" class="mini-textbox" style="width:100%;" />
+                            </div>
+                            <div field="IsSys" width="70" headeralign="center" renderer="onIsSysRender" align="center">系统数据</div>
+                            <div field="SN" width="70" headeralign="center" align="center">
+                                排序
+                                <input property="editor" class="mini-textbox" style="width:100%;" />
+                            </div>
+                            <div field="Remark" width="200" headeralign="center">
+                                备注
+                                <input property="editor" class="mini-textbox" style="width:100%;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

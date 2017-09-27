@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新增工序</title>
+    <script src="../lib/boot.js"></script>
+    <script src="WorkProcessInfo.js"></script>
+</head>
+<body>
+    <form id="form1">
+        <div style="padding:40px;">
+            <input name="ProcID" class="mini-hidden" />
+            <table class="form">
+                <tr>
+                    <th>产品部门：</th>
+                    <td>
+                        <input id="sPDCode" name="PDCode" class="mini-combobox" textfield="Name" valuefield="PDCode" emptytext="请选择产品部门" style="width: 150px;" required="true" shownullitem="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>代 码：</th>
+                    <td>
+                        <input name="Code" class="mini-textbox" emptytext="请输入工序代码" style="width: 200px;" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>名 称：</th>
+                    <td>
+                        <input name="Name" class="mini-textbox" emptytext="请输入工序名称" style="width: 200px;" required="true"/>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <th>物料类型：</th>
+                    <td>
+                        <input id="cboProcType" name="ProcType" class="mini-combobox" emptytext="请选择物料类型" style="width: 200px;" textfield="Name" valuefield="Code" shownullitem="true" required="true"/>
+                    </td>
+                </tr>-->
+            </table>
+            <div style="text-align: center; padding-top: 50px;">
+                <a class="mini-button" id="btnOk" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

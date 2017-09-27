@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>客户基础资料</title>
+    <script src="../lib/boot.js"></script>
+    <script src="Customer.js"></script>
+</head>
+<body>
+    <form id="form1" method="post">
+        <div class="mini-toolbar">
+            <table>
+                <tr>
+                    <td style="width: 100%;" colspan="1">
+                        <a class="mini-button" onclick="OnAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                        <a class="mini-button" onclick="OnSee"><i class="icon-edit blue icon-large"></i>编辑</a>
+                        <a class="mini-button" onclick="OnRemove"><i class="icon-trash brown icon-large"></i> 删除</a>
+                    </td>
+                    <td style="white-space: nowrap; text-align:right" colspan="2">
+                        <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 120px;" onenter="search" />
+                        <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" pagesize="50" showcolumnsmenu="true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="Code" sortorder="asc">
+                <div property="columns">
+                    <div type="indexcolumn" width="50px">序号</div> <!--这是在列前面加上 选择的checkBox，可不加！！！！-->
+                    <div field="CustID" width="70" headeralign="center" allowsort="true" visible="false" align="center">客户ID</div>
+                    <div field="Logo" name="Logo" width="50" headeralign="center" allowsort="true" align="center" renderer="onImg">
+                        图标
+                    </div>
+                    <div field="Code" name="Code" width="150" headeralign="center" allowsort="true" align="center">
+                        代码
+                    </div>
+                    <div field="Name" name="Name" width="150" headeralign="center" allowsort="true" align="center">
+                        名称
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

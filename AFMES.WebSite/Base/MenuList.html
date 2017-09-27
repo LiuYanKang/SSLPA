@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>菜单管理</title>
+    <script src="../lib/boot.js"></script>
+    <script src="MenuList.js"></script>
+</head>
+<body>
+    <div class="mini-toolbar" style="border-width: 0px 0px 1px 0px;">
+        <div id="conditionForm" class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <td id="functionList" style="width: 100%; white-space: nowrap; text-align: left;">
+                        <a class="mini-button" onclick="openInfo('insert','-fw-');"><i class="icon-plus-sign green icon-large"></i>增加根节点</a>
+                        <a class="mini-button" onclick="openInfo('update');" data-options="{minSelectedCount:1,maxSelectedCount:1}"><i class="icon-plus-sign green icon-large"></i>增加子节点</a>
+                        <a class="mini-button" onclick="openInfo('query');" data-options="{minSelectedCount:1,maxSelectedCount:1}"><i class="icon-edit green icon-large"></i>修改</a>
+                        <a id="del" class="mini-button" onclick="Del();" data-options="{minSelectedCount:1,maxSelectedCount:1}"><i class="icon-trash brown icon-large"></i>删除</a>
+                    </td>
+                    <td style="white-space:nowrap;">
+                        <a id="select" style="display:none;" onclick="select();" class="mini-button"><i class="icon-save blue icon-large"></i> 选择</a>
+                        <a id="selectClear" style="display:none;" onclick="selectClear();" class="mini-button"><i class="icon-save blue icon-large"></i> 清除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="mini-fit">
+        <div id="treegrid1" class="mini-treegrid" style="width: 100%; height: 100%;" borderstyle="border-width: 0px;"
+             multiselect="true" showcolumnsmenu="true" frozenstartcolumn="0" frozenendcolumn="1" showtreeicon="true"
+             treecolumn="Name" idfield="MenuCode" parentfield="PCode" resultastree="true" expandonload="true" onselectionchanged="datagrid1_SelectionChanged" onbeforeselect="treegrid1_BeforeSelect">
+            <div property="columns">
+                <div type="indexcolumn" width="30">
+                </div>
+                <div type="checkcolumn" width="30">
+                </div>
+                <div field="PCode" width="150" headeralign="center" align="left" visible="false">
+                    父级菜单编码
+                </div>
+                <div field="MenuCode" width="150" headeralign="center" align="left" visible="false">
+                    菜单编码
+                </div>
+                <div name="Name" field="Name" width="150" headeralign="center" align="left"
+                     renderer="treegrid1_Renderer">
+                    菜单名称
+                </div>
+                <div field="Url" width="150" headeralign="center" align="left">
+                    Url
+                </div>
+                <div field="Icon" width="150" headeralign="center" align="left">
+                    菜单图标
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

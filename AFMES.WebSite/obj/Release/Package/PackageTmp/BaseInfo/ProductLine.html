@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>产线维护页面</title>
+    <script src="../lib/boot.js"></script>
+    <script src="ProductLine.js"></script>
+</head>
+<body>
+    <div class="mini-toolbar">
+        <table>
+            <tr>
+                <td style="width: 100%;">
+                    <a class="mini-button" onclick="ProductLineAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                    <a class="mini-button" onclick="ProductLineEdit"><i class="icon-edit blue icon-large"></i>编辑</a>
+                    <a class="mini-button" onclick="ProductLineRemove"><i class="icon-trash red icon-large"></i> 删除</a>                   
+                </td>
+                <td style="white-space: nowrap;">
+                    <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                    <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit">
+        <div id="datagrid" class="mini-datagrid" style="height:100%" fitcolumns="false" showcolumnsmenu="true" allowCellWrap="true" pagesize="10"
+             onbeforeload="datagrid_BeforeLoad"  sortfield="ProLineId" sortorder="asc" allowdrag="true" allowdrop="true" multiselect="true">
+            <div property="columns">
+                <div type="indexcolumn" width="40px"></div>
+                <!--<div type="checkcolumn"></div>-->
+                <div field="ProLineId" width="80" headeralign="center" visible="false" align="center">产线ID</div>
+                <div field="ProLineCode" width="100" headeralign="center" allowsort="true" align="center">
+                    产线代码
+                </div>
+                <div field="ProLineName" width="200" headeralign="center" allowsort="true" align="left">
+                    产线名称
+                </div>
+                <div field="MachineNames" width="200" headeralign="center" allowsort="true" align="left">
+                    产线设备
+                </div>
+                <div field="CreateTime" width="120" headeralign="center" allowsort="true" align="center" renderer="mini.onDateTime2Render">
+                    创建时间
+                </div>
+                <div field="UpdateTime" width="120" headeralign="center" allowsort="true" align="center" renderer="mini.onDateTime2Render">
+                    更新时间
+                </div>
+                <div field="UpdateName" width="80" headeralign="center" allowsort="true" align="center">
+                    更新人
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

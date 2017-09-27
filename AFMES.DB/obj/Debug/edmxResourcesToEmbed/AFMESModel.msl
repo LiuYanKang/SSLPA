@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AFMESModelStoreContainer" CdmEntityContainer="AFMESEntities">
+    <EntitySetMapping Name="EHS">
+      <EntityTypeMapping TypeName="AFMESModel.EHS">
+        <MappingFragment StoreEntitySet="EHS">
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Pic" ColumnName="Pic" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EHSID" ColumnName="EHSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineMachineMap">
+      <EntityTypeMapping TypeName="AFMESModel.LineMachineMap">
+        <MappingFragment StoreEntitySet="LineMachineMap">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+          <ScalarProperty Name="ProLineId" ColumnName="ProLineId" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Machine">
+      <EntityTypeMapping TypeName="AFMESModel.Machine">
+        <MappingFragment StoreEntitySet="Machine">
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="QualityWarning" ColumnName="QualityWarning" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+          <ScalarProperty Name="NowStatus" ColumnName="NowStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DownCodeID" ColumnName="DownCodeID" />
+          <ScalarProperty Name="ProcID" ColumnName="ProcID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MachineEHS">
+      <EntityTypeMapping TypeName="AFMESModel.MachineEHS">
+        <MappingFragment StoreEntitySet="MachineEHS">
+          <ScalarProperty Name="EHSID" ColumnName="EHSID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductDept">
+      <EntityTypeMapping TypeName="AFMESModel.ProductDept">
+        <MappingFragment StoreEntitySet="ProductDept">
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductLine">
+      <EntityTypeMapping TypeName="AFMESModel.ProductLine">
+        <MappingFragment StoreEntitySet="ProductLine">
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="ProLineName" ColumnName="ProLineName" />
+          <ScalarProperty Name="ProLineCode" ColumnName="ProLineCode" />
+          <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+          <ScalarProperty Name="ProLineId" ColumnName="ProLineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather">
+      <EntityTypeMapping TypeName="AFMESModel.Weather">
+        <MappingFragment StoreEntitySet="Weather">
+          <ScalarProperty Name="Icon2" ColumnName="Icon2" />
+          <ScalarProperty Name="Icon1" ColumnName="Icon1" />
+          <ScalarProperty Name="WeatherInfo" ColumnName="WeatherInfo" />
+          <ScalarProperty Name="TodayTemp" ColumnName="TodayTemp" />
+          <ScalarProperty Name="Temp" ColumnName="Temp" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="WeatherTime" ColumnName="WeatherTime" />
+          <ScalarProperty Name="WID" ColumnName="WID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Action">
+      <EntityTypeMapping TypeName="AFMESModel.Action">
+        <MappingFragment StoreEntitySet="Action">
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="AuditArea" ColumnName="AuditArea" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+          <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AreaMachineMap">
+      <EntityTypeMapping TypeName="AFMESModel.AreaMachineMap">
+        <MappingFragment StoreEntitySet="AreaMachineMap">
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpAuditArea">
+      <EntityTypeMapping TypeName="AFMESModel.EmpAuditArea">
+        <MappingFragment StoreEntitySet="EmpAuditArea">
+          <ScalarProperty Name="AuditArea" ColumnName="AuditArea" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProblemLog">
+      <EntityTypeMapping TypeName="AFMESModel.ProblemLog">
+        <MappingFragment StoreEntitySet="ProblemLog">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="NewPlanEndDate" ColumnName="NewPlanEndDate" />
+          <ScalarProperty Name="PlanEndDate" ColumnName="PlanEndDate" />
+          <ScalarProperty Name="ProbID" ColumnName="ProbID" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProblemPic">
+      <EntityTypeMapping TypeName="AFMESModel.ProblemPic">
+        <MappingFragment StoreEntitySet="ProblemPic">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="PicType" ColumnName="PicType" />
+          <ScalarProperty Name="ProbID" ColumnName="ProbID" />
+          <ScalarProperty Name="PicID" ColumnName="PicID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area">
+      <EntityTypeMapping TypeName="AFMESModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+          <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanAreaMap">
+      <EntityTypeMapping TypeName="AFMESModel.PlanAreaMap">
+        <MappingFragment StoreEntitySet="PlanAreaMap">
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkProcess">
+      <EntityTypeMapping TypeName="AFMESModel.WorkProcess">
+        <MappingFragment StoreEntitySet="WorkProcess">
+          <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ProcType" ColumnName="ProcType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ProcID" ColumnName="ProcID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LPAActionResult">
+      <EntityTypeMapping TypeName="AFMESModel.LPAActionResult">
+        <MappingFragment StoreEntitySet="LPAActionResult">
+          <ScalarProperty Name="EnterNum" ColumnName="EnterNum" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="AFMESModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="AuditType" ColumnName="AuditType" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="IsResponsible" ColumnName="IsResponsible" />
+          <ScalarProperty Name="SuperiorID" ColumnName="SuperiorID" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditItem">
+      <EntityTypeMapping TypeName="AFMESModel.AuditItem">
+        <MappingFragment StoreEntitySet="AuditItem">
+          <ScalarProperty Name="IsInputData" ColumnName="IsInputData" />
+          <ScalarProperty Name="MCode" ColumnName="MCode" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="ItemRegion" ColumnName="ItemRegion" />
+          <ScalarProperty Name="AuditType" ColumnName="AuditType" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionPlan">
+      <EntityTypeMapping TypeName="AFMESModel.ActionPlan">
+        <MappingFragment StoreEntitySet="ActionPlan">
+          <ScalarProperty Name="BanCi" ColumnName="BanCi" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+          <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+          <ScalarProperty Name="AuditType" ColumnName="AuditType" />
+          <ScalarProperty Name="EndPlanDate" ColumnName="EndPlanDate" />
+          <ScalarProperty Name="StartPlanDate" ColumnName="StartPlanDate" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Problem">
+      <EntityTypeMapping TypeName="AFMESModel.Problem">
+        <MappingFragment StoreEntitySet="Problem">
+          <ScalarProperty Name="ImproveAdvice" ColumnName="ImproveAdvice" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Progress" ColumnName="Progress" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Measure" ColumnName="Measure" />
+          <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+          <ScalarProperty Name="PlanEndDate" ColumnName="PlanEndDate" />
+          <ScalarProperty Name="PlanStartDate" ColumnName="PlanStartDate" />
+          <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+          <ScalarProperty Name="ProblemDesc" ColumnName="ProblemDesc" />
+          <ScalarProperty Name="Responsible" ColumnName="Responsible" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="ProblemType" ColumnName="ProblemType" />
+          <ScalarProperty Name="ProblemRegion" ColumnName="ProblemRegion" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+          <ScalarProperty Name="ProbID" ColumnName="ProbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

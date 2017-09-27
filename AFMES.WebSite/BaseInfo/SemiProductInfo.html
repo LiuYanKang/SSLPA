@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>半成品操作</title>
+    <script src="../lib/boot.js"></script>
+    <script src="SemiProductInfo.js"></script>
+</head>
+<body>
+
+    <form id="form1">
+        <div style="padding:20px;">
+            <input name="SemiProdID" class="mini-hidden" />
+            <table class="form">
+                <tr>
+                    <th>料　　号：</th>
+                    <td>
+                        <input name="Code" class="mini-textbox" emptytext="请输入半成品料号" style="width: 200px;" required="true" />
+                    </td>
+                    <th>线　　径：</th>
+                    <td>
+                        <input name="Diameter" class="mini-textbox" emptytext="请输入线径" vtype="float" style="width: 170px;" required="true" /> mm
+                    </td>
+                </tr>
+                <tr>
+                    <th>供 应 商：</th>
+                    <td>
+                        <input id="txtSupplierID" name="SupplierID" class="mini-buttonedit" width="200px" inputstyle="text-align:left;" emptytext="请选择供应商"
+                               onbuttonclick="onChooseSupplier" allowinput="false" showclose="true" oncloseclick="mini.onCloseClick" required="true" />
+                    </td>
+                    <th>原 材 料：</th>
+                    <td>
+                        <input id="txtRawMaterialID" name="RawMaterialID" class="mini-buttonedit" width="200px" inputstyle="text-align:left;" emptytext="请选择原材料"
+                               onbuttonclick="onChooseRawMaterial" allowinput="false" showclose="true" oncloseclick="mini.onCloseClick" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>库存预警：</th>
+                    <td>
+                        <input name="MinStorage" class="mini-textbox" emptytext="最小库存" vtype="float" value="-1" style="width: 85px;" required="true" /> ~
+                        <input name="MaxStorage" class="mini-textbox" emptytext="最大库存" vtype="float" value="-1" style="width: 85px;" required="true" />  kg
+                    </td>
+                    <th>强度等级：</th>
+                    <td>
+                        <input id="cboStrength" name="Strength" class="mini-combobox" emptytext="请选择强度等级" style="width: 200px;" textfield="Name" valuefield="Code" shownullitem="true" value="0" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>备　　注：</th>
+                    <td colspan="3">
+                        <input name="Remark" class="mini-textarea" emptytext="请输入备注" style="width: 525px;height:80px;" />
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center; padding: 10px;">
+                <a class="mini-button" id="btnOk" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

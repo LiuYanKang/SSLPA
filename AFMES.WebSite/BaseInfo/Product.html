@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>产品</title>
+    <script src="../lib/boot.js"></script>
+    <script src="Product.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div class="mini-toolbar">
+            <table>
+                <tr>
+                    <td style="width: 100%;">
+                        <a class="mini-button" onclick="onAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                        <a class="mini-button" onclick="onEdit"><i class="icon-edit blue icon-large"></i>编辑</a>
+                        <a class="mini-button" onclick="onRemove"><i class="icon-trash red icon-large"></i> 删除</a>
+                        <span class="separator"></span>
+                        <a class="mini-button" onclick="showBarCode"><i class="icon-barcode icon-large"></i> 条码</a>
+                    </td>
+                    <td style="white-space: nowrap;">
+                        <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                        <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " fitcolumns="false" pagesize="50" showcolumnsmenu="true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="Code" sortorder="asc">
+                <div property="columns">
+                    <div type="indexcolumn" width="40px">序号</div>
+                    <div field="ProdID" width="50" visible="false" headeralign="center" align="center">ProdID</div>
+                    <div field="Code" width="100" headeralign="center" allowsort="true" align="center" renderer="onProductRenderer">
+                        产品料号
+                    </div>
+                    <div field="CustCode" width="100" headeralign="center" allowsort="true" align="center">
+                        客户料号
+                    </div>
+                    <div field="CustomerName" width="100" headeralign="center" allowsort="true" align="center">
+                        客户
+                    </div>
+                    <div field="Weight" width="100" headeralign="center" allowsort="true" align="center">
+                        重量 (kg)
+                    </div>
+                    <div field="LocCode" width="100" headeralign="center" allowsort="true" align="center">
+                        尾数库位
+                    </div>
+                    <div field="IsDSA" type="checkboxcolumn" visible="false" width="100" headeralign="center" allowsort="true" align="center">
+                        IsDSA
+                    </div>
+                    <div field="IsSLM" type="checkboxcolumn" visible="false" width="100" headeralign="center" allowsort="true" align="center">
+                        IsSLM
+                    </div>
+                    <div field="Remark" width="200" headeralign="center" allowsort="true" align="left">
+                        备注
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

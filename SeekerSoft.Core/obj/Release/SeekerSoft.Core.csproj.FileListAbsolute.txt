@@ -1,0 +1,16 @@
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\SeekerSoft.Core.dll.config
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\SeekerSoft.Core.dll
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\SeekerSoft.Core.pdb
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\EntityFramework.dll
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\EntityFramework.Extended.dll
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\EntityFramework.SqlServer.dll
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\Newtonsoft.Json.dll
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\EntityFramework.xml
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\EntityFramework.Extended.xml
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\EntityFramework.SqlServer.xml
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\Newtonsoft.Json.xml
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\zh-Hans\EntityFramework.resources.dll
+C:\开发项目\SSLPA\source\SeekerSoft.Core\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\开发项目\SSLPA\source\SeekerSoft.Core\obj\Release\SeekerSoft.Core.csprojResolveAssemblyReference.cache
+C:\开发项目\SSLPA\source\SeekerSoft.Core\obj\Release\SeekerSoft.Core.dll
+C:\开发项目\SSLPA\source\SeekerSoft.Core\obj\Release\SeekerSoft.Core.pdb

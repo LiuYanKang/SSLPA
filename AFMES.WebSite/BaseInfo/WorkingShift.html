@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>班次</title>
+    <script src="../lib/boot.js"></script>
+    <script src="WorkingShift.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div class="mini-toolbar">
+            <table>
+                <tr>
+                    <td style="width: 100%;">
+                        <a class="mini-button" onclick="onAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                        <a class="mini-button" onclick="onEdit"><i class="icon-edit blue icon-large"></i>编辑</a>
+                        <a class="mini-button" onclick="onRemove"><i class="icon-trash red icon-large"></i> 删除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " fitcolumns="false" showpager="false" showcolumnsmenu=" true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="BeginTime" sortorder="asc">
+                <div property="columns">
+                    <div type="indexcolumn" width="40px">序号</div>
+                    <div field="ShiftID" width="50" visible="false" headeralign="center" align="center">班次ID</div>
+                    <div field="Code" width="100" headeralign="center" allowsort="true" align="center">
+                        编号
+                    </div>
+                    <div field="Name" width="120" headeralign="center" allowsort="true" align="center">
+                        名称
+                    </div>
+                    <div field="BeginTime" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onTime2Render">
+                        上班时间
+                    </div>
+                    <div field="EndTime" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onTime2Render">
+                        下班时间
+                    </div>
+                    <div field="Remark" width="200" headeralign="center" allowsort="true" align="left">
+                        备注
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

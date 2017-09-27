@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LPA 系统</title>
+    <style type="text/css">
+        body {
+            background: url(img/login_bg_x.jpg) repeat-x #e7ebee;
+        }
+
+        .container {
+            background: url(img/login_bg.png) no-repeat 0 83px;
+            height: 600px;
+            width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .form {
+            position: absolute;
+            top: 226px;
+            left: 650px;
+            width: 300px;
+        }
+
+        .copyright {
+            width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .license {
+            display: block;
+            text-align: center;
+            color: #808080;
+        }
+
+            .license span {
+                color: #000;
+                font-size: 14px;
+            }
+
+        #txtUserName {
+            margin: 0 0 0 55px;
+            height: 30px;
+            width: 224px;
+            border: none;
+        }
+
+        #txtPassword {
+            margin: 13px 0 0 55px;
+            height: 30px;
+            width: 224px;
+            border: none;
+        }
+    </style>
+    <script src="lib/boot.js"></script>
+</head>
+<body anonymous="anonymous">
+    <div class="container">
+        <div class="form">
+            <input id="txtUserName" maxlength="50" type="text" value="" />
+            <input id="txtPassword" maxlength="50" type="password" value="" onkeydown="onValidate()" />
+            <input type="button" onclick="login()" value="登　录" style="height: 30px; width: 224px; margin: 20px auto;display:block" />
+            <span class="license"></span>
+        </div>
+
+    </div>
+    <div class="copyright">
+        &copy; 2017  <a href="http://www.seekersoft.cn/" target="_blank">苏州寻道者软件科技有限公司</a>
+    </div>
+    <script type="text/javascript">
+        $.page_load = function () {
+
+            var license = $.cookie("license");
+            showLicense(license);
+
+            $.srv("Base", "GetLicense", {
+                success: function (data) {
+                    var license = data.Data;
+                    $.cookie("license", license);
+                    showLicense(license);
+                }
+            });
+
+
+            $("#txtUserName").focus();
+        }
+
+        function onValidate() {
+            if (event.keyCode != 13) return;
+            login();
+        }
+
+        function login() {
+            mini.mask({
+                el: document.body,
+                cls: 'mini-mask-loading',
+                html: '登陆验证中……'
+            });
+
+            var $txtUserName = $("#txtUserName");
+            var $txtPassword = $("#txtPassword");
+            $.srv("Base", "LoginValidate"
+                , {
+                    data: { username: $txtUserName.val(), pwd: $txtPassword.val() }
+                    , success: function (data) {
+                        mini.unmask(document.body);
+                        if (data.Data == null) {
+                            $txtPassword.val("").focus();
+                            mini.alert("账号或密码错误，登陆失败。");
+                            return;
+                        }
+                        $.userinfo(data.Data);
+                        window.location.href = unescape($.request("refurl") || "/");
+                    }
+                    , exception: function (data) {
+                        mini.unmask(document.body);
+                        mini.alert(data.Msg);
+                        return false;
+                    }
+                });
+            return false;
+        }
+
+        function showLicense(license) {
+            if (license && license.length > 0) {
+                $(".license").html("License to <span>" + license + "</span>");
+            } else {
+                $(".license").html("Trial Product");
+            }
+        }
+    </script>
+</body>
+</html>

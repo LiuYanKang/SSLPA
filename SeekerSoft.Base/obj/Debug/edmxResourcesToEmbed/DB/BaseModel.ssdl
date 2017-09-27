@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YCDCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Name="DeptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="ManagerId" Type="int" />
+    <Property Name="PID" Type="int" />
+    <Property Name="FullDeptID" Type="varchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="SN" Type="int" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+  </EntityType>
+  <EntityType Name="DepartmentFuncMap">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+      <PropertyRef Name="FuncCode" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="FuncCode" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DepartmentMenuMap">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+      <PropertyRef Name="MenuCode" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="MenuCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dic">
+    <Key>
+      <PropertyRef Name="DicCode" />
+    </Key>
+    <Property Name="DicCode" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DicItem">
+    <Key>
+      <PropertyRef Name="DicCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="DicCode" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="IsSys" Type="bit" Nullable="false" />
+    <Property Name="SN" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="EmailSend">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Receiver" Type="nvarchar" MaxLength="500" />
+    <Property Name="Content" Type="nvarchar" MaxLength="2000" />
+    <Property Name="SendTime" Type="datetime" Nullable="false" />
+    <Property Name="ResultData" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeptID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="NFCID" Type="nvarchar" MaxLength="64" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="EmpCode" Type="nvarchar" MaxLength="32" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="16" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="16" />
+    <Property Name="EMail" Type="nvarchar" MaxLength="128" />
+    <Property Name="Status" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="ModifyBy" Type="int" />
+    <Property Name="PDCode" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="FunctionDefine">
+    <Key>
+      <PropertyRef Name="FuncCode" />
+    </Key>
+    <Property Name="FuncCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ParentCode" Type="varchar" MaxLength="20" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="LoginUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pwd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDisabled" Type="bit" Nullable="false" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuCode" />
+    </Key>
+    <Property Name="MenuCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="Url" Type="nvarchar" MaxLength="300" />
+    <Property Name="Visible" Type="bit" Nullable="false" />
+    <Property Name="SN" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OnlineUser">
+    <Key>
+      <PropertyRef Name="Ticket" />
+    </Key>
+    <Property Name="Ticket" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="UserType" Type="int" Nullable="false" />
+    <Property Name="Terminal" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="BeginTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="IsDis" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="RoleFuncMap">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="FuncCode" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="FuncCode" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleMenuMap">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="MenuCode" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="MenuCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SMSSend">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tel" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="SendTime" Type="datetime" Nullable="false" />
+    <Property Name="ResultData" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="YCDCModelStoreContainer">
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="base" store:Type="Tables" />
+    <EntitySet Name="DepartmentFuncMap" EntityType="Self.DepartmentFuncMap" Schema="base" store:Type="Tables" />
+    <EntitySet Name="DepartmentMenuMap" EntityType="Self.DepartmentMenuMap" Schema="base" store:Type="Tables" />
+    <EntitySet Name="Dic" EntityType="Self.Dic" Schema="base" store:Type="Tables" />
+    <EntitySet Name="DicItem" EntityType="Self.DicItem" Schema="base" store:Type="Tables" />
+    <EntitySet Name="EmailSend" EntityType="Self.EmailSend" Schema="base" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="base" store:Type="Tables" />
+    <EntitySet Name="FunctionDefine" EntityType="Self.FunctionDefine" Schema="base" store:Type="Tables" />
+    <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="base" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="base" store:Type="Tables" />
+    <EntitySet Name="OnlineUser" EntityType="Self.OnlineUser" Schema="base" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="base" store:Type="Tables" />
+    <EntitySet Name="RoleFuncMap" EntityType="Self.RoleFuncMap" Schema="base" store:Type="Tables" />
+    <EntitySet Name="RoleMenuMap" EntityType="Self.RoleMenuMap" Schema="base" store:Type="Tables" />
+    <EntitySet Name="SMSSend" EntityType="Self.SMSSend" Schema="base" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="base" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

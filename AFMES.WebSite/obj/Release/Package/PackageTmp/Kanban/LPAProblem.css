@@ -1,0 +1,58 @@
+/*header .mui-pull-left{
+	height: 90%;
+	margin: 2px 0 0 2px;
+}
+
+header .mui-pull-right{
+	padding: 3px 0 3px 70px;
+	background: url(../img/deskclock.png) no-repeat left 5px;
+	background-size: 50px;
+	font-size: 24px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.mui-bar{
+	height: 60px;
+}
+.mui-bar-nav~.mui-content{
+	padding-top: 60px;
+}
+
+.mui-title{
+	line-height: 60px;
+	font-size: 32px;
+}*/
+
+
+#tb {
+    width: 100%;
+}
+
+    #tb thead td {
+        height: 60px;
+        font-size: 16px;
+        border-bottom: solid #6D6D72 1px;
+        padding-left: 8px;
+    }
+
+    #tb tbody tr:nth-child(2n) td {
+        background: #C7C7CC;
+    }
+
+    #tb tbody td {
+        height: 50px;
+        font-size: 14px;
+        line-height: 25px;
+        border-bottom: solid #FFF 1px;
+        border-right: solid #FFF 1px;
+        padding-left: 8px;
+    }
+
+        #tb tbody td.status.processing {
+            background: #FFFF00;
+        }
+
+        #tb tbody td.status.end {
+            background: #2AC845;
+        }

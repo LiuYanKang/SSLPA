@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB90C5A4-29A2-4E19-ADBC-76E102974B86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SeekerSoft.Core</RootNamespace>
+    <AssemblyName>SeekerSoft.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net40\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AFMES\NFCIDHelper.cs" />
+    <Compile Include="AFMES\POHelper.cs" />
+    <Compile Include="Auth\UserCache.cs" />
+    <Compile Include="Auth\UserInfo.cs" />
+    <Compile Include="Config\ConfigHelper.cs" />
+    <Compile Include="DB\DBHelper.cs" />
+    <Compile Include="DB\SqlPageProcedureParams.cs" />
+    <Compile Include="DB\PagingExtensions.cs" />
+    <Compile Include="IO\FileHelper.cs" />
+    <Compile Include="Json\JsonHelper.cs" />
+    <Compile Include="Log\Log.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registry\RegistryHelper.cs" />
+    <Compile Include="Security\MD5Helper.cs" />
+    <Compile Include="ServiceModel\PagerParams.cs" />
+    <Compile Include="ServiceModel\PagerResult.cs" />
+    <Compile Include="ServiceModel\SrvResult.cs" />
+    <Compile Include="WCF\MessageSink.cs" />
+    <Compile Include="WCF\AuthAttribute.cs" />
+    <Compile Include="WCF\AuthValidProperty.cs" />
+    <Compile Include="WCF\AuthValidServiceAttribute.cs" />
+    <Compile Include="WCF\ServiceBase.cs" />
+    <Compile Include="Web\RequestUtility.cs" />
+    <Compile Include="Winform\AppHelper.cs" />
+    <Compile Include="WXCorp\CorpManage.cs" />
+    <Compile Include="WXCorp\Cryptography.cs" />
+    <Compile Include="WXCorp\Model\RequestMsgType.cs" />
+    <Compile Include="WXCorp\Model\SendMessages.cs" />
+    <Compile Include="WXCorp\Model\WXMsgResult.cs" />
+    <Compile Include="WXCorp\Model\WXOrg.cs" />
+    <Compile Include="WXCorp\Model\WXUser.cs" />
+    <Compile Include="WXCorp\RequestXML.cs" />
+    <Compile Include="WXCorp\WXBizMsgCrypt.cs" />
+    <Compile Include="WXCorp\WXCorpHelper.cs" />
+    <Compile Include="WXCorp\XmlDatasetConvert.cs" />
+    <Compile Include="WXPay\business\DownloadBill.cs" />
+    <Compile Include="WXPay\business\JsApiPay.cs" />
+    <Compile Include="WXPay\business\MicroPay.cs" />
+    <Compile Include="WXPay\business\Notify.cs" />
+    <Compile Include="WXPay\business\OrderQuery.cs" />
+    <Compile Include="WXPay\business\Refund.cs" />
+    <Compile Include="WXPay\business\RefundQuery.cs" />
+    <Compile Include="WXPay\Config.cs" />
+    <Compile Include="WXPay\Data.cs" />
+    <Compile Include="WXPay\HttpService.cs" />
+    <Compile Include="WXPay\WxPayApi.cs" />
+    <Compile Include="WXPP\QrCode.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

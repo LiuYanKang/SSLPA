@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SSCore", "SSCore", "{1AF9DD1A-02A4-4546-9401-B8E71B872BB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeekerSoft.Base", "SeekerSoft.Base\SeekerSoft.Base.csproj", "{4CC53F2F-D0FB-4A12-9EBF-25B944F44A4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeekerSoft.Core", "SeekerSoft.Core\SeekerSoft.Core.csproj", "{BB90C5A4-29A2-4E19-ADBC-76E102974B86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSLPA.WebSite", "AFMES.WebSite\SSLPA.WebSite.csproj", "{AF791F8E-A648-41F5-B543-035FF1DA4A77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSLPA.DB", "AFMES.DB\SSLPA.DB.csproj", "{4E292958-CC64-41BF-A567-D2A6A5E340B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSLPA.BaseInfo", "AFMES.BaseInfo\SSLPA.BaseInfo.csproj", "{5D4DFA6A-60B8-4AD6-ADD2-32C3C868CEA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSLPA.LPA", "AFMES.LPA\SSLPA.LPA.csproj", "{1CB68078-61BC-4C48-B6A9-4B5A3A84A96E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CC53F2F-D0FB-4A12-9EBF-25B944F44A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC53F2F-D0FB-4A12-9EBF-25B944F44A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC53F2F-D0FB-4A12-9EBF-25B944F44A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC53F2F-D0FB-4A12-9EBF-25B944F44A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB90C5A4-29A2-4E19-ADBC-76E102974B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB90C5A4-29A2-4E19-ADBC-76E102974B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB90C5A4-29A2-4E19-ADBC-76E102974B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB90C5A4-29A2-4E19-ADBC-76E102974B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF791F8E-A648-41F5-B543-035FF1DA4A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF791F8E-A648-41F5-B543-035FF1DA4A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF791F8E-A648-41F5-B543-035FF1DA4A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF791F8E-A648-41F5-B543-035FF1DA4A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E292958-CC64-41BF-A567-D2A6A5E340B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E292958-CC64-41BF-A567-D2A6A5E340B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E292958-CC64-41BF-A567-D2A6A5E340B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E292958-CC64-41BF-A567-D2A6A5E340B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D4DFA6A-60B8-4AD6-ADD2-32C3C868CEA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D4DFA6A-60B8-4AD6-ADD2-32C3C868CEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D4DFA6A-60B8-4AD6-ADD2-32C3C868CEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D4DFA6A-60B8-4AD6-ADD2-32C3C868CEA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB68078-61BC-4C48-B6A9-4B5A3A84A96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB68078-61BC-4C48-B6A9-4B5A3A84A96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB68078-61BC-4C48-B6A9-4B5A3A84A96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB68078-61BC-4C48-B6A9-4B5A3A84A96E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4CC53F2F-D0FB-4A12-9EBF-25B944F44A4D} = {1AF9DD1A-02A4-4546-9401-B8E71B872BB9}
+		{BB90C5A4-29A2-4E19-ADBC-76E102974B86} = {1AF9DD1A-02A4-4546-9401-B8E71B872BB9}
+	EndGlobalSection
+EndGlobal

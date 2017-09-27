@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LPA审核项目</title>
+    <script src="../lib/boot.js"></script>
+    <script src="AuditItem.js"></script>
+</head>
+<body>
+    <div class="mini-toolbar">
+        <table>
+            <tr>
+                <td style="width: 100%;">
+                    审核模板：
+                    <input id="cboAuditType" class="mini-combobox" style="width: 80px;" textfield="Name" valuefield="Code"
+                           allowinput="false" value="1" onvaluechanged="search" required="true" />
+                    产品部门：
+                    <input id="sPDCode" name="PDCode" class="mini-combobox" textfield="Name" valuefield="PDCode" emptytext="请选择产品部门" style="width: 150px;" onvaluechanged="search" required="false" shownullitem="true" />                
+                    审核区域：
+                    <!--<input id="cboAuditArea" class="mini-combobox" style="width: 110px;" shownullitem="true" textfield="Name" valuefield="Code" popupWidth="150" emptytext="请选择区域"
+                           allowinput="true" value="" onvaluechanged="search" required="false"/>-->
+                    <input id="cboAuditArea" class="mini-combobox" textfield="AreaName" valuefield="AreaId" emptytext="请选择区域" style="width: 150px;" onvaluechanged="search" required="false" shownullitem="true"/>
+                    <span class="separator"></span>
+                    <a class="mini-button" onclick="AuditItemAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                    <a class="mini-button" onclick="AuditItemEdit"><i class="icon-edit blue icon-large"></i>编辑</a>
+                    <a class="mini-button" onclick="AuditItemRemove"><i class="icon-trash red icon-large"></i> 删除</a>
+                    <span class="separator"></span>
+                    <a class="mini-button" plain="true"><i class="icon-large red icon-exclamation-sign"></i> 拖拽序号修改排序</a>
+                </td>
+                <td style="white-space: nowrap;">
+                    <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                    <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit">
+        <div id="datagrid" class="mini-treegrid" style="height:100%" fitcolumns="false" showcolumnsmenu="true" allowCellWrap="true"
+             onbeforeload="datagrid_BeforeLoad" ondrop="datagrid_drop" sortfield="SN" sortorder="asc" allowdrag="true" allowdrop="true">
+            <div property="columns">
+                <div type="indexcolumn" width="40px"></div>
+                <div field="ItemID" width="50" visible="false" headeralign="center" align="center">ItemID</div>
+                <div field="PDCode" width="100" headeralign="center" allowsort="true" align="center">
+                    产品部门
+                </div>
+                <div field="ItemRegionName" width="100" headeralign="center" allowsort="true" align="center">
+                    区域
+                </div>
+                <div field="MName" width="100" headeralign="center" allowsort="true" align="center">
+                    设备
+                </div>
+                <div field="Description" width="300" headeralign="center" allowsort="true" align="left" onrenderer="onDescRender">
+                    描述
+                </div>
+                <div field="ItemTypeName" width="80" headeralign="center" allowsort="true" align="center">
+                    分类
+                </div>
+                <div field="SN" width="80" headeralign="center" visible="false" allowsort="true" align="center">
+                    排序
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

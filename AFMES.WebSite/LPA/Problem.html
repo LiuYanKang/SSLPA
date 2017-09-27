@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>问题管理</title>
+    <script src="../lib/boot.js"></script>
+    <script src="Problem.js"></script>
+
+    <style type="text/css">
+        .progressbar {
+            position: relative;
+            background: #bbb;
+            width: 100%;
+            height: 16px;
+            overflow: hidden;
+        }
+
+        .progressbar-percent {
+            position: absolute;
+            height: 18px;
+            background: blue;
+            left: 0;
+            top: 0px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .progressbar-label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            font-size: 13px;
+            color: White;
+            z-index: 10;
+            text-align: center;
+            height: 16px;
+            line-height: 16px;
+        }
+
+
+        .progressbar-percent, .progressbar-percent.percent50, .progressbar-percent.percent75 {
+            background: #f6d123;
+        }
+
+            .progressbar-percent.percent25 {
+                background: #9a3434;
+            }
+
+            .progressbar-percent.percent100 {
+                background: #62ae41;
+            }
+    </style>
+
+</head>
+<body>
+
+    <div class="mini-toolbar">
+        <table>
+            <tr>
+                <td style="width: 100%;">
+                    <a class="mini-button" onclick="ExportExcel"><i class="icon-circle-arrow-right blue icon-large"></i> 导出</a>
+                    <span class="separator"></span>
+                    <a id="btnClose" class="mini-button" onclick="ProblemFinish"><i class="icon-check green icon-large"></i>关闭问题</a>
+                    <a id="btnEdit" class="mini-button" onclick="ProblemEdit" functioncode="2003"><i class="icon-edit blue icon-large"></i>编辑</a>
+                    <a class="mini-button" onclick="ProblemRemove" functioncode="2003"><i class="icon-trash red icon-large"></i> 删除</a>
+                    <a id="btnUpdate" class="mini-button" onclick="ProblemUpdate" functioncode="2003"><i class="icon-edit blue icon-large"></i>更新问题</a>
+                </td>
+                <td style="white-space: nowrap;">
+                    <input id="cboProblemRegion" class="mini-combobox" textfield="AreaName" valuefield="AreaId" emptytext="问题区域" style="width: 110px;" onvaluechanged="search" required="false" shownullitem="true" />
+                    <input id="cboProblemType" class="mini-combobox" style="width: 110px;" textfield="Name" valuefield="Code"
+                           emptytext="问题分类" shownullitem="true" allowinput="false" onvaluechanged="search" />
+                    <input id="cboState" class="mini-combobox" style="width: 80px;" textfield="Name" valuefield="Code"
+                           emptytext="问题状态" shownullitem="true" allowinput="false" visible="false" onvaluechanged="search" />
+                    <input id="txtSubmitBeginDate" class="mini-datepicker" width="120px" emptytext="提交日期(开始)" value="" valuetype="date" onvaluechanged="search" allowinput="false" />
+                    <input id="txtSubmitEndDate" class="mini-datepicker" width="120px" emptytext="提交日期(结束)" value="" valuetype="date" onvaluechanged="search" allowinput="false" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right">
+                    <input id="txtProgress" name="Progress" class="mini-combobox" style="width:110px;" textfield="Name" valuefield="Code" shownullitem="true" emptytext="完成进度" allowinput="false" onvaluechanged="search" />
+                    <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                    <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit">
+        <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " fitcolumns="false" pagesize="20" showcolumnsmenu="true"
+             onbeforeload="datagrid_BeforeLoad" onselectionchanged="datagrid_selectionchanged" sortfield="SubmitDate" sortorder="desc">
+            <div property="columns">
+                <div type="indexcolumn" width="40px"></div>
+                <div field="ProbID" width="50" visible="false" headeralign="center" allowsort="true" align="center">ProbID</div>
+                <div field="ActionID" width="50" visible="false" headeralign="center" allowsort="true" align="center">ActionID</div>
+                <div field="ItemID" width="50" visible="false" headeralign="center" allowsort="true" align="center">ItemID</div>
+                <div field="UserId" width="50" visible="false" headeralign="center" allowsort="true" align="center">UserId</div>
+                <div field="Responsible" width="50" visible="false" headeralign="center" allowsort="true" align="center">Responsible</div>
+                <div field="CreateByName" width="80" headeralign="center" allowsort="true" align="center">
+                    发现人
+                </div>
+                <div field="ProblemRegionName" width="100" headeralign="center" allowsort="true" align="center">
+                    区域
+                </div>
+                <div field="ProblemTypeName" width="50" headeralign="center" allowsort="true" align="center">
+                    分类
+                </div>
+                <div field="MachineName" width="80" headeralign="center" allowsort="true" align="center">
+                    设备
+                </div>
+                <div field="ItemDesc" width="200" headeralign="center" allowsort="true" align="left">
+                    检查项
+                </div>
+                <div field="ProblemDesc" width="200" headeralign="center" allowsort="true" align="left" renderer="onProblemDescRender">
+                    描述
+                </div>
+                <div field="Measure" width="200" headeralign="center" allowsort="true" align="left">
+                    改正措施
+                </div>
+                <div field="ResponsibleName" width="80" headeralign="center" allowsort="true" align="center">
+                    责任人
+                </div>
+                <div field="SubmitDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                    提交日期
+                </div>
+                <div field="PlanStartDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                    计划开始日期
+                </div>
+                <div field="PlanEndDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                    计划完成日期
+                </div>
+                <div field="ActualEndDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                    实际完成日期
+                </div>
+                <div field="StateName" width="100" headeralign="center" allowsort="true" visible="false" align="center">
+                    问题状态
+                </div>
+                <div field="Progress" width="100" headeralign="center" allowsort="true" align="center" renderer="onProgressRender">
+                    完成进度
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

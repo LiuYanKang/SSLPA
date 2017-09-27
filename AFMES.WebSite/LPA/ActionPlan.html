@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LPA执行计划表</title>
+    <script src="../lib/boot.js"></script>
+    <script src="ActionPlan.js"></script>
+</head>
+<body>
+
+    <div class="mini-toolbar">
+        <table>
+            <tr>
+                <td style="width: 100%;">
+                    <a class="mini-button" onclick="ActionPlanAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                    <!--<a class="mini-button" onclick="ActionPlanEdit"><i class="icon-edit blue icon-large"></i>编辑</a>-->
+                    <a class="mini-button" onclick="ActionPlanRemove"><i class="icon-trash red icon-large"></i> 删除</a>
+                    <span class="separator"></span>
+                    <a class="mini-button" onclick="onRemoveForBatch"><i class="icon-trash orange2 icon-large"></i> 批量删除</a>
+                </td>
+                <td style="white-space: nowrap;">
+                    <input id="cboAuditType" class="mini-combobox" style="width: 80px;" textfield="Name" valuefield="Code"
+                           emptytext="审核模板" shownullitem="true" allowinput="false" onvaluechanged="search" />
+                    <input id="txtPlanBeginDate" class="mini-datepicker" width="120px" emptytext="计划开始日期" value="" valuetype="date" onvaluechanged="search" allowinput="false" />
+                    <input id="txtPlanEndDate" class="mini-datepicker" width="120px" emptytext="计划结束日期" value="" valuetype="date" onvaluechanged="search" allowinput="false" />
+
+                    <!--<input id="txtActionBeginTime" class="mini-datepicker" width="120px" emptytext="执行时间（起）" value="" valuetype="date" onvaluechanged="search" allowinput="false" />
+                    <input id="txtActionEndTime" class="mini-datepicker" width="120px" emptytext="执行时间（止）" value="" valuetype="date" onvaluechanged="search" allowinput="false" />-->
+
+                    <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                    <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit">
+        <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " fitcolumns="false" pagesize="20" showcolumnsmenu="true"
+             onbeforeload="datagrid_BeforeLoad" multiselect="true" sortfield="EmpName" sortorder="asc">
+            <div property="columns">
+                <div type="indexcolumn" width="40px"></div>
+                <div type="checkcolumn"></div>
+                <div field="PlanID" width="50" visible="false" headeralign="center" align="center">PlanID</div>
+                <div field="EmpName" width="100" headeralign="center" allowsort="true" align="center">
+                    员工姓名
+                </div>
+                <div field="StartPlanDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                    计划开始日期
+                </div>
+                <div field="EndPlanDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                    计划结束日期
+                </div>
+                <div field="AuditTypeName" width="100" headeralign="center" allowsort="true" align="center">
+                    审核类型
+                </div>
+                <div field="AudtiAreaMes" width="100" headeralign="center" allowsort="true" align="center">
+                    审核区域
+                </div>
+                <div field="BanCiName" width="80" headeralign="center" allowsort="true" align="center">
+                    班次
+                </div>
+                <div field="ActionTime" width="150" headeralign="center" allowsort="true" align="center" renderer="mini.onDateTime2Render">
+                    执行时间
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

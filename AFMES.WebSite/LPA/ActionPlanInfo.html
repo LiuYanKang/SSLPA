@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="ActionPlanInfo.js"></script>
+</head>
+<body>
+
+    <form id="form1">
+        <div style="padding:20px;">
+            <input name="PlanID" class="mini-hidden" />
+            <table class="form">
+                <!--<tr style="height:30px">
+
+                </tr>-->
+                <tr>
+                    <th width="100">员 工：</th>
+                    <td>
+                        <input id="txtEmpID" name="EmpID" class="mini-buttonedit" width="120" inputstyle="text-align:left;" emptytext="请选择员工"
+                               onbuttonclick="onChooseEmp" allowinput="false" showclose="true" oncloseclick="mini.onCloseClick" required="true" />
+                    </td>
+                    <th width="100">审核区域：</th>
+                    <td rowspan="4" width="150">
+                        <div id="cblArea" style="height: 150px; overflow-y: auto" class="mini-checkboxlist" repeatItems="1" repeatLayout="table" textField="AreaName" valueField="AreaId" required="true">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        审核类型：
+                    </th>            
+                    <td>
+                        <input id="cboAuditType" name="AuditType" class="mini-combobox" textfield="Name" valuefield="Code" emptytext="请选择审核类型" style="width: 120px;" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>班次：</th>
+                    <td>
+                        <input id="cboBanCi" name="BanCi" class="mini-combobox" textfield="Name" valuefield="Code" emptytext="请选择班次" style="width: 120px;" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>计划开始时间：</th>
+                    <td>
+                        <input id="txtStartPlanDate" name="StartPlanDate" class="mini-datepicker" format="yyyy-MM-dd" value="new Date()"
+                               style="width: 120px;" required="true" allowinput="false" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>计划结束时间：</th>
+                    <td>
+                        <input id="txtEndPlanDate" name="EndPlanDate" class="mini-datepicker" format="yyyy-MM-dd" value="new Date()"
+                               style="width: 120px;" required="true" allowinput="false" />
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center; padding: 10px;">
+                <a class="mini-button" id="btnOk" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

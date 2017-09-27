@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>菜单信息</title>
+    <script src="../lib/boot.js"></script>
+    <script src="MenuInfo.js"></script>
+</head>
+<body style="height:96%;">
+    <div id="editform" class="form" style="margin: 10px auto;">
+        <table style="width: 90%; margin: 0px auto;">
+            <tr>
+                <td>
+                    <input name="PCode" class="mini-textbox" style="display:none;" />
+                    <input name="MenuCode" class="mini-textbox" style="display:none;" />
+                    <input name="FuncCode" class="mini-textbox" style="display:none;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:15%; text-align:right;">
+                    菜单名称：
+                </td>
+                <td colspan="3">
+                    <input name="Name" class="mini-textbox" selectonfocus="true" required="true"
+                           maxlength="36" style="width: 96%;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right;">
+                    图标地址：
+                </td>
+                <td colspan="3">
+                    <input id="Icon" name="Icon" class="mini-textbox" selectonfocus="true" maxlength="200"
+                           style="width: 96%;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right;">
+                    地址：
+                </td>
+                <td colspan="3">
+                    <input name="Url" class="mini-textbox" selectonfocus="true" maxlength="100" style="width: 96%;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="text-align:center;padding:10px;">
+        <a class="mini-button" onclick="onInsertOrUpdate()" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i>保存</a>
+        <a class="mini-button" onclick="onCancel" style="width:80px;"><i class="icon-remove red icon-large"></i>取消</a>
+    </div>
+</body>
+</html>

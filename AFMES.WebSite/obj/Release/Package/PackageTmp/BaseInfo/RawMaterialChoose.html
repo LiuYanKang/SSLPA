@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>选择原材料</title>
+    <script src="../lib/boot.js"></script>
+    <script src="RawMaterialChoose.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div class="mini-toolbar" style="height: 34px;">
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:100%;">
+                        <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                        <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                    </td>
+                    <td style="white-space:nowrap;">
+                        <a class="mini-button" onclick="onOk()"><i class="icon-ok green icon-large"></i> 确定</a>
+                        <a class="mini-button" onclick="onCancel()"><i class="icon-remove red icon-large"></i> 取消</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showcolumnsmenu="true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="Code" sortorder="asc">
+                <div property="columns">
+                    <div type="indexcolumn" width="40px"></div>
+                    <div type="checkcolumn" width="50"></div>
+                    <div field="RawMaterialID" width="50" visible="false" headeralign="center" align="center">原料ID</div>
+                    <div field="Diameter" name="Dismeter" width="100" headeralign="center" allowsort="true" align="center">
+                        线径(mm)
+                    </div>
+                    <div field="Code" name="Code" width="100" headeralign="center" allowsort="true" align="center">
+                        料号
+                    </div>
+                    <div field="SupplierName" name="SupplierName" width="150" headeralign="center" allowsort="true" align="center">
+                        供应商
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('#datagrid').attr('multiSelect', "false");
+        </script>
+    </form>
+
+</body>
+</html>

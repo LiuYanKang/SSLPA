@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>查看二维码</title>
+    <script src="../lib/boot.js"></script>
+    <script src="../lib/qrcode/jquery.qrcode.min.js"></script>
+    <script>
+        $.page_load = function () {
+            var data = $.request("data");
+
+            $('#qrcodeTarget').qrcode(data);
+        }
+    </script>
+    <style>
+        .container {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="qrcodeTarget"></div>
+    </div>
+</body>
+</html>

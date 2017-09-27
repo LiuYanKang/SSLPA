@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>查看条码</title>
+    <script src="../lib/boot.js"></script>
+    <script src="../lib/barcode/jquery-barcode.min.js"></script>
+    <script>
+        $.page_load = function () {
+            var data = $.request("data");
+
+            var settings = {
+                output: "css",// css bmp svg canvas
+                bgColor: "#FFF",
+                color: "#000",
+                barWidth: 1,
+                barHeight: 50,
+                moduleSize: 5,
+                posX: 10,
+                posY: 10,
+                addQuietZone: 1
+            };
+
+            //$("#canvasTarget").show().barcode(data, "code39", settings);
+            $("#barcodeTarget").html("").show().barcode(data, "code39", settings);
+        }
+    </script>
+    <style>
+        .container {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--<canvas id="canvasTarget" width="150" height="100"></canvas>--> 
+        <div id="barcodeTarget" class="barcodeTarget"></div>
+    </div>
+</body>
+</html>

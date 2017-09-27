@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1CB68078-61BC-4C48-B6A9-4B5A3A84A96E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SSLPA.LPA</RootNamespace>
+    <AssemblyName>SSLPA.LPA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\packages\NPOI.2.2.1\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\packages\NPOI.2.2.1\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\ActionBL.cs" />
+    <Compile Include="BL\ActionPlanBL.cs" />
+    <Compile Include="BL\ActionPlanBL2.cs" />
+    <Compile Include="BL\AreaBL.cs" />
+    <Compile Include="BL\AuditItemBL.cs" />
+    <Compile Include="BL\EmployeeBL.cs" />
+    <Compile Include="BL\LpaOverviewBL.cs" />
+    <Compile Include="BL\LpaReport.cs" />
+    <Compile Include="BL\MailListBL.cs" />
+    <Compile Include="BL\ProblemBL.cs" />
+    <Compile Include="BL\ReportBL.cs" />
+    <Compile Include="DTO\MAllWeek.cs" />
+    <Compile Include="DTO\MArea.cs" />
+    <Compile Include="DTO\MAuditGroup.cs" />
+    <Compile Include="DTO\MAuditMachine.cs" />
+    <Compile Include="DTO\MExpired.cs" />
+    <Compile Include="DTO\MAction2.cs" />
+    <Compile Include="DTO\MActionPlan2.cs" />
+    <Compile Include="DTO\MAuditAreaItems.cs" />
+    <Compile Include="DTO\MEmpAuditArea.cs" />
+    <Compile Include="DTO\MActionResult.cs" />
+    <Compile Include="DTO\MAction.cs" />
+    <Compile Include="DTO\MAuditItem.cs" />
+    <Compile Include="DTO\MEmployee.cs" />
+    <Compile Include="DTO\MLPAActionResult.cs" />
+    <Compile Include="DTO\MLpaOverviewWeek.cs" />
+    <Compile Include="DTO\MLPAProblemArea.cs" />
+    <Compile Include="DTO\MLpaSection.cs" />
+    <Compile Include="DTO\MMailList.cs" />
+    <Compile Include="DTO\MProblem.cs" />
+    <Compile Include="DTO\MProblemLog.cs" />
+    <Compile Include="DTO\MProblemPic.cs" />
+    <Compile Include="DTO\MProGroup.cs" />
+    <Compile Include="DTO\MProSum.cs" />
+    <Compile Include="DTO\MRegionTypeResponse.cs" />
+    <Compile Include="DTO\MReport.cs" />
+    <Compile Include="DTO\MSetActionPlan.cs" />
+    <Compile Include="DTO\QAction.cs" />
+    <Compile Include="DTO\QActionPlan.cs" />
+    <Compile Include="DTO\QArea.cs" />
+    <Compile Include="DTO\QAuditItem.cs" />
+    <Compile Include="DTO\QEmployee.cs" />
+    <Compile Include="DTO\MActionPlan.cs" />
+    <Compile Include="DTO\QLpaOverviewWeek.cs" />
+    <Compile Include="DTO\QLPAProblemArea.cs" />
+    <Compile Include="DTO\QProblem.cs" />
+    <Compile Include="DTO\QReport.cs" />
+    <Compile Include="DTO\MPlanGroup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Srv\LPASrv.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AFMES.BaseInfo\SSLPA.BaseInfo.csproj">
+      <Project>{5D4DFA6A-60B8-4AD6-ADD2-32C3C868CEA2}</Project>
+      <Name>SSLPA.BaseInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AFMES.DB\SSLPA.DB.csproj">
+      <Project>{4e292958-cc64-41bf-a567-d2a6a5e340b2}</Project>
+      <Name>SSLPA.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SeekerSoft.Base\SeekerSoft.Base.csproj">
+      <Project>{4cc53f2f-d0fb-4a12-9ebf-25b944f44a4d}</Project>
+      <Name>SeekerSoft.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SeekerSoft.Core\SeekerSoft.Core.csproj">
+      <Project>{bb90c5a4-29a2-4e19-adbc-76e102974b86}</Project>
+      <Name>SeekerSoft.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

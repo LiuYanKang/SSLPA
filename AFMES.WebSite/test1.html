@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="lib/boot.js"></script>
+
+</head>
+<body>
+
+
+    <div id="test"></div>
+    <script>
+
+        $.page_load = function () {
+            load_Data();
+        }
+
+        function load_Data() {
+
+
+
+            $.srv("LPA", "GetMailData", {
+
+                success: function (result) {
+                    document.getElementById('test').innerHTML = result.Data;
+                }
+
+            })
+        }
+
+
+    </script>
+</body>
+</html>

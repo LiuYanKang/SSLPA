@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>配置用户角色</title>
+    <script src="../lib/boot.js"></script>
+    <script src="UserRole.js"></script>
+</head>
+<body>
+    <div class="mini-toolbar" style="border-bottom:0;padding:0px;">
+        <table style="width:100%;">
+            <tr>
+                <td style="width:100%;">
+                    <input id="txtKeyword" class="mini-textbox" emptytext="输入关键字" style="width:120px;" onenter="search()" />
+                    <a class="mini-button" onclick="search()"><i class="icon-search blue icon-large"></i> 搜索</a>
+                </td>
+                <td style="white-space:nowrap;">
+                    <a class="mini-button" onclick="onOk()"><i class="icon-ok green icon-large"></i> 保存</a>
+                    <a class="mini-button" onclick="onCancel()"><i class="icon-remove red icon-large"></i> 取消</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit">
+        <div id="datagrid1" class="mini-datagrid" style="width:100%;height:100%;"
+             idfield="RoleID" 
+             allowunselect="true" multiselect="true" showcolumnsmenu="true" fitcolumns="false"
+             onselectionchanged="onSelectoinChanged" onbeforeload="datagrid1_BeforeLoad" onupdate="onGridUpdate" sortfield="RoleID" sortorder="ASC">
+            <div property="columns">
+                <div type="indexcolumn"></div>
+                <div type="checkcolumn"></div>
+                <div field="RoleID" width="100">ID</div>
+                <div field="Name" headeralign="left" align="left" allowsort="true" width="120">角色名称</div>
+                <div field="Remark" headeralign="left" align="left" allowsort="true" width="250">备注</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            multiSelect = $.request('multiSelect');
+            $('#datagrid1').attr('multiSelect', multiSelect == "1" ? "true" : "false");
+        </script>
+    </div>
+</body>
+</html>

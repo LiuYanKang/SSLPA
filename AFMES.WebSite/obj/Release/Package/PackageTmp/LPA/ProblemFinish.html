@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="ProblemFinish.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div style="padding: 20px;">
+            <table class="form">
+                <tr>
+                    <th style="width:110px;">发 现 人：</th>
+                    <td style="width: 230px;">
+                        <span id="lblCreateByName"></span>
+                    </td>
+                    <th style="width:110px;">责 任 人：</th>
+                    <td>
+                        <span id="lblResponsibleName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:110px;">问题区域：</th>
+                    <td>
+                        <span id="lblProblemRegion"></span>
+                    </td>
+                    <th style="width:110px;">问题分类：</th>
+                    <td style="width: 230px;">
+                        <span id="lblProblemType"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:110px;">提交时间：</th>
+                    <td>
+                        <span id="lblSubmitTime"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:110px;">计划开始日期：</th>
+                    <td>
+                        <span id="lblPlanStartDate"></span>
+                    </td>
+                    <th style="width:110px;">计划完成日期：</th>
+                    <td style="width: 230px;">
+                        <span id="lblPlanEndDate"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:110px;">实际完成日期：</th>
+                    <td>
+                        <span id="lblActualEndDate"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="height: 200px;">
+                        <div id="tabs" class="mini-tabs" style="width: 100%; height: 100%">
+                            <div title="问题描述">
+                                <span id="lblProblemDesc"></span>
+                            </div>
+                            <div title="发现时照片">
+                                <div class="mini-fit">
+                                    <div id="dgProbPicBefore" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showpager="false"
+                                         showcolumnsmenu="true" sortfield="PicID" sortorder="asc" allowdrag="true" allowdrop="true">
+                                        <div property="columns">
+                                            <div type="indexcolumn" width="40px"></div>
+                                            <div field="PicID" width="50" visible="false" headeralign="center" align="center">PicID</div>
+                                            <div field="FileName" width="180" headeralign="center" allowsort="true" align="center" renderer="onFileNameRender">问题图片</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div title="整改后照片">
+                                <div class="mini-fit">
+                                    <div id="dgProbPicAfter" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showpager="false"
+                                         showcolumnsmenu="true" sortfield="PicID" sortorder="asc" allowdrag="true" allowdrop="true">
+                                        <div property="columns">
+                                            <div type="indexcolumn" width="40px"></div>
+                                            <div field="PicID" width="50" visible="false" headeralign="center" align="center">PicID</div>
+                                            <div field="FileName" width="180" headeralign="center" allowsort="true" align="center" renderer="onFileNameRender">问题图片</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div title="改正措施">
+                                <span id="lblMeasure"></span>
+                            </div>
+                            <div title="修改日志">
+                                <div class="mini-fit">
+                                    <div id="dgProbLog" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showpager="false"
+                                         showcolumnsmenu="true" sortfield="PicID" sortorder="asc" allowdrag="true" allowdrop="true">
+                                        <div property="columns">
+                                            <div type="indexcolumn" width="40px"></div>
+                                            <div field="LogID" width="50" visible="false" headeralign="center" align="center">LogID</div>
+                                            <div field="ProbID" width="50" visible="false" headeralign="center" align="center">ProbID</div>
+                                            <div field="PlanEndDate" width="150" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">原计划完成日期</div>
+                                            <div field="NewPlanEndDate" width="150" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">新计划完成日期</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="tabs" class="mini-tabs" style="width: 100%; height: 200px">
+                            <div title="关闭问题">
+                                <input id="txtRemark" class="mini-textarea" emptytext="请输入备注" style="width: 100%; height: 80px;" />
+                                <p>只有部门经理有权限关闭问题</p>
+                                <div style="text-align:right">
+                                    <a class="mini-button" onclick="onFinish"><i class="icon-check green icon-large"></i>确认关闭</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+</body>
+</html>

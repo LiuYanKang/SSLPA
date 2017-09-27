@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>员工技能维护</title>
+    <script src="../lib/boot.js"></script>
+    <script src="EmpSkillInfo.js"></script>
+</head>
+<body>
+
+    <form id="form1">
+        <div style="padding:20px;">
+            <input id="hidEmpID" name="EmpID" class="mini-hidden" />
+            <table class="form">
+                <tr>
+                    <th style="width: 80px">员工姓名：</th>
+                    <td style="width: 200px">
+                        <span id="lblEmpName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 80px">设　　备：</th>
+                    <td style="width: 200px">
+                        <input id="cboMachine" name="MachineID" class="mini-combobox" style="width: 160px;" allowinput="false" textfield="Name" valuefield="MachineID" emptytext="请选择设备" shownullitem="false" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 80px">技能等级：</th>
+                    <td style="width: 200px">
+                        <input id="cboSkillLevel" name="SkillLevel" class="mini-combobox" emptytext="请选择" style="width: 160px;" textfield="Name" valuefield="Code" shownullitem="false" required="true" />
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center; padding: 10px;">
+                <a class="mini-button" id="btnOk" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

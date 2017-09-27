@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YCDCModelStoreContainer" CdmEntityContainer="BaseEntities">
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="BaseModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="FullDeptID" ColumnName="FullDeptID" />
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dic">
+      <EntityTypeMapping TypeName="BaseModel.Dic">
+        <MappingFragment StoreEntitySet="Dic">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DicCode" ColumnName="DicCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DicItem">
+      <EntityTypeMapping TypeName="BaseModel.DicItem">
+        <MappingFragment StoreEntitySet="DicItem">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="IsSys" ColumnName="IsSys" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DicCode" ColumnName="DicCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FunctionDefine">
+      <EntityTypeMapping TypeName="BaseModel.FunctionDefine">
+        <MappingFragment StoreEntitySet="FunctionDefine">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentCode" ColumnName="ParentCode" />
+          <ScalarProperty Name="FuncCode" ColumnName="FuncCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginUser">
+      <EntityTypeMapping TypeName="BaseModel.LoginUser">
+        <MappingFragment StoreEntitySet="LoginUser">
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu">
+      <EntityTypeMapping TypeName="BaseModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PCode" ColumnName="PCode" />
+          <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="BaseModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleFuncMap">
+      <EntityTypeMapping TypeName="BaseModel.RoleFuncMap">
+        <MappingFragment StoreEntitySet="RoleFuncMap">
+          <ScalarProperty Name="FuncCode" ColumnName="FuncCode" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleMenuMap">
+      <EntityTypeMapping TypeName="BaseModel.RoleMenuMap">
+        <MappingFragment StoreEntitySet="RoleMenuMap">
+          <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="BaseModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnlineUser">
+      <EntityTypeMapping TypeName="BaseModel.OnlineUser">
+        <MappingFragment StoreEntitySet="OnlineUser">
+          <ScalarProperty Name="IsDis" ColumnName="IsDis" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
+          <ScalarProperty Name="Terminal" ColumnName="Terminal" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Ticket" ColumnName="Ticket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMSSend">
+      <EntityTypeMapping TypeName="BaseModel.SMSSend">
+        <MappingFragment StoreEntitySet="SMSSend">
+          <ScalarProperty Name="ResultData" ColumnName="ResultData" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailSend">
+      <EntityTypeMapping TypeName="BaseModel.EmailSend">
+        <MappingFragment StoreEntitySet="EmailSend">
+          <ScalarProperty Name="ResultData" ColumnName="ResultData" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentFuncMap">
+      <EntityTypeMapping TypeName="BaseModel.DepartmentFuncMap">
+        <MappingFragment StoreEntitySet="DepartmentFuncMap">
+          <ScalarProperty Name="FuncCode" ColumnName="FuncCode" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentMenuMap">
+      <EntityTypeMapping TypeName="BaseModel.DepartmentMenuMap">
+        <MappingFragment StoreEntitySet="DepartmentMenuMap">
+          <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="BaseModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NFCID" ColumnName="NFCID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

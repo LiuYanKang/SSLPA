@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5aff3540208341229ea0b3d47ce9bb02" Name="Diagram1">
+        <EntityTypeShape EntityType="BaseModel.Department" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BaseModel.Dic" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BaseModel.DicItem" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BaseModel.FunctionDefine" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BaseModel.LoginUser" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BaseModel.Menu" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BaseModel.Role" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BaseModel.RoleFuncMap" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BaseModel.RoleMenuMap" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BaseModel.UserRole" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BaseModel.OnlineUser" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BaseModel.SMSSend" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BaseModel.EmailSend" Width="1.5" PointX="9.375" PointY="5.75" />
+        <EntityTypeShape EntityType="BaseModel.DepartmentFuncMap" Width="1.5" PointX="9.375" PointY="8.75" />
+        <EntityTypeShape EntityType="BaseModel.DepartmentMenuMap" Width="1.5" PointX="3.375" PointY="10.75" />
+        <EntityTypeShape EntityType="BaseModel.Employee" Width="1.5" PointX="9.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

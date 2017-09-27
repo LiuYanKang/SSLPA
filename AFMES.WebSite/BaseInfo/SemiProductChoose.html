@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>选择半成品</title>
+    <script src="../lib/boot.js"></script>
+    <script src="SemiProductChoose.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div class="mini-toolbar">
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:100%;">
+                        <input id="keyword" class="mini-textbox" emptytext="请输入半成品料号" style="width: 150px;" onenter="search" />
+                        <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                    </td>
+                    <td style="white-space:nowrap;">
+                        <a class="mini-button" onclick="onOk()"><i class="icon-ok green icon-large"></i> 确定</a>
+                        <a class="mini-button" onclick="onCancel()"><i class="icon-remove red icon-large"></i> 取消</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showcolumnsmenu="true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="Code" sortorder="asc" onselectionchanged="onSelectoinChanged" onupdate="onGridUpdate" multiselect="true" allowunselect="true">
+                <div property="columns">
+                    <div type="indexcolumn" width="40px">序号</div>
+                    <div type="checkcolumn" width="50"></div>
+                    <div field="SemiProdID" width="80" visible="false" headeralign="center" align="center">半成品ID</div>
+                    <div field="SupplierID" width="80" visible="false" headeralign="center" align="center">供应商ID</div>
+                    <div field="RawMaterialID" width="80" visible="false" headeralign="center" align="center">原材料ID</div>
+                    <div field="Diameter" width="70" headeralign="center" allowsort="true" align="center">
+                        线径(mm)
+                    </div>
+                    <div field="StrengthName" width="70" headeralign="center" allowsort="true" align="center">
+                        强度等级
+                    </div>
+                    <div field="Code" width="100" headeralign="center" allowsort="true" align="center">
+                        半成品料号
+                    </div>
+                    <div field="SupplierName" width="100" headeralign="center" allowsort="true" align="center">
+                        供应商
+                    </div>
+                    <div field="MaterialCode" width="100" headeralign="center" allowsort="true" align="center">
+                        原材料号
+                    </div>
+                    <div field="Remark" width="200" headeralign="center" allowsort="true" align="left">
+                        备注
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            multiSelect = $.request('multiSelect');
+            $('#datagrid').attr('multiSelect', multiSelect == "1" ? "true" : "false");
+        </script>
+    </form>
+
+</body>
+</html>

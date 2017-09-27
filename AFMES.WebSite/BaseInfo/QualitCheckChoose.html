@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>选择质量释放项目</title>
+    <script src="../lib/boot.js"></script>
+    <script src="QualitCheckChoose.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div class="mini-splitter" style="width:100%;height:100%;">
+            <div size="330px;">
+                <div class="mini-toolbar">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="white-space: nowrap; text-align: right;">
+                                <input id="cboMaterialType" class="mini-combobox" emptytext="物料类型" textfield="Name" valuefield="Code"
+                                       allowinput="false" shownullitem="true" style="width: 80px;" onvaluechanged="dglSearch" />
+                                <input id="leftKeyword" class="mini-textbox" emptytext="请输入关键字" style="width: 100px;" onenter="dglSearch" />
+                                <a class="mini-button" onclick="dglSearch()"><i class="icon-search green icon-large"></i>查询</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="mini-fit">
+                    <div id="dgleft" class="mini-datagrid" style="width:100%;height:100%;" fitcolumns="false"
+                         onbeforeload="dgl_BeforeLoad" onselectionchanged="dgleft_selectionchanged" pagesize="15" showcolumnsmenu="true" sortfield="MaterialType" sortorder="desc">
+                        <div property="columns">
+                            <div type="indexcolumn" width="50" headeralign="center" allowsort="true"></div>
+                            <div field="MaterialID" visible="false" width="50" headeralign="center" align="center">MaterialID</div>
+                            <div field="Code" width="180" headeralign="center" align="center" allowsort="true">物料料号</div>
+                            <div field="MaterialType" width="80" headeralign="center" align="center" allowsort="true" renderer="onMaterialType">物料类型</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mini-splitter" style="width:100%;height:100%;">
+                    <div showcollapsebutton="true" size="143px">
+                        <div class="mini-fit">
+                            <div id="dgCenter" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showcolumnsmenu="true" showpager="false"
+                                 onbeforeload="dgCenter_BeforeLoad" onselectionchanged="dgCenter_selectionchanged" sortfield="ProcID" sortorder="asc">
+                                <div property="columns">
+                                    <div type="indexcolumn" width="40px" headeralign="center"></div>
+                                    <div field="ProcID" visible="false" width="50" headeralign="center" align="center">ProcID</div>
+                                    <div field="Code" visible="false" width="100" headeralign="center" align="center">代码</div>
+                                    <div field="Name" width="100" headeralign="center" align="center">工序</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mini-toolbar">
+                            <table>
+                                <tr>
+                                    <td style="width:100%;">
+                                        <input id="rightKeyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="searchright" />
+                                        <a class="mini-button" onclick="searchright()"><i class="icon-search green icon-large"></i>查询</a>
+                                    </td>
+                                    <td style="white-space:nowrap;">
+                                        <a class="mini-button" onclick="onOk()"><i class="icon-ok green icon-large"></i> 确定</a>
+                                        <a class="mini-button" onclick="onCancel()"><i class="icon-remove red icon-large"></i> 取消</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="mini-fit">
+                            <div id="dgRight" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showpager="false"
+                                 onbeforeload="dgRight_BeforeLoad" showcolumnsmenu="true" sortfield="QCInfoID" sortorder="asc"
+                                 onselectionchanged="onSelectoinChanged" onupdate="onGridUpdate" multiselect="true" allowunselect="true">
+                                <div property="columns">
+                                    <div type="indexcolumn" width="50px" align="center" headeralign="center"></div>
+                                    <div field="QCInfoID" width="50" visible="false" headeralign="center" align="center">QCInfoID</div>
+                                    <div field="ProcessID" width="50" visible="false" headeralign="center" align="center">ProcessID</div>
+                                    <div field="ItemID" width="50" visible="false" headeralign="center" align="center">ItemID</div>
+                                    <div type="checkcolumn"></div>
+                                    <div field="Content" width="300" headeralign="center" align="left">QS项目</div>
+                                    <div field="InfoTypeName" width="100" headeralign="center" align="center" renderer="onInfoTypeName">值范围</div>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            multiSelect = $.request('multiSelect');
+                            $('#dgRight').attr('multiSelect', multiSelect == "1" ? "false" : "true");
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

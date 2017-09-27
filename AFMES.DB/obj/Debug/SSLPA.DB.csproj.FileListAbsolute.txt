@@ -1,0 +1,12 @@
+C:\开发项目\SSLPA\source\AFMES.DB\bin\Debug\SSLPA.DB.dll.config
+C:\开发项目\SSLPA\source\AFMES.DB\bin\Debug\SSLPA.DB.dll
+C:\开发项目\SSLPA\source\AFMES.DB\bin\Debug\SSLPA.DB.pdb
+C:\开发项目\SSLPA\source\AFMES.DB\bin\Debug\EntityFramework.dll
+C:\开发项目\SSLPA\source\AFMES.DB\bin\Debug\EntityFramework.SqlServer.dll
+C:\开发项目\SSLPA\source\AFMES.DB\bin\Debug\EntityFramework.xml
+C:\开发项目\SSLPA\source\AFMES.DB\bin\Debug\EntityFramework.SqlServer.xml
+C:\开发项目\SSLPA\source\AFMES.DB\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\开发项目\SSLPA\source\AFMES.DB\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\开发项目\SSLPA\source\AFMES.DB\obj\Debug\SSLPA.DB.csprojResolveAssemblyReference.cache
+C:\开发项目\SSLPA\source\AFMES.DB\obj\Debug\SSLPA.DB.dll
+C:\开发项目\SSLPA\source\AFMES.DB\obj\Debug\SSLPA.DB.pdb

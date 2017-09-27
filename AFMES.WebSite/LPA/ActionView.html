@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="ActionView.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div style="padding: 20px;">
+            <table class="form">
+                <tr>
+                    <th style="width:110px;">员工姓名：</th>
+                    <td style="width: 230px;">
+                        <span id="lblName"></span>
+                    </td>
+                    <th style="width:110px;">执行日期：</th>
+                    <td>
+                        <span id="lblAuditDate"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="height: 280px;">
+                        <div id="tabs" class="mini-tabs" style="width: 600px; height: 100%">
+                            <div title="审核记录">
+                                <div class="mini-toolbar">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 100%;">
+                                                审核区域：
+                                                <!--<input id="cboAuditArea" class="mini-combobox" style="width: 80px;" shownullitem="true" textfield="Name" valuefield="Code" popupWidth="120px"
+                                                       allowinput="false" value="" onvaluechanged="search" required="false"/>-->
+                                                <input id="cboAuditArea" class="mini-combobox" textfield="AreaName" valuefield="AreaId" emptytext="请选择区域" style="width: 150px;" onvaluechanged="search" required="false" shownullitem="true" />
+                                            </td>
+                                            <td style="white-space: nowrap;">
+                                                <input id="txtKeyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                                                <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="mini-fit">
+                                    <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%;" fitcolumns="false" allowCellWrap="true" showcolumnsmenu="true" showpager="false" sortfield="" sortorder="">
+                                        <div property="columns">
+                                            <div type="indexcolumn" width="50" headeralign="center"></div>
+                                            <div field="ActionID" visible="false" width="80px" headeralign="center" align="center">
+                                                审核记录ID
+                                            </div>
+                                            <div field="ItemID" visible="false" width="80px" headeralign="center" align="center">
+                                                检查项ID
+                                            </div>
+                                            <div field="ItemRegionName" width="80px" headeralign="center" align="center">
+                                                区域
+                                            </div>
+                                            <div field="Description" width="300px" headeralign="center" align="left">
+                                                描述
+                                            </div>
+                                            <div field="Result" width="80px" headeralign="center" align="center" renderer="onResult">
+                                                审核结果
+                                            </div>
+                                            <div field="EnterNum" width="80px" headeralign="center" align="center" renderer="onResult">
+                                                录入数值
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div title="问题记录">
+                                <div class="mini-fit">
+                                    <div id="dgProblem" class="mini-datagrid" style="width: 100%; height: 100%;" fitcolumns="false" allowcellwrap="true" showcolumnsmenu="true" showpager="false" sortfield="" sortorder="">
+                                        <div property="columns">
+                                            <div type="indexcolumn" width="50" headeralign="center"></div>
+                                            <div field="ProbID" width="50" visible="false" headeralign="center" allowsort="true" align="center">ProbID</div>
+                                            <div field="ActionID" width="50" visible="false" headeralign="center" allowsort="true" align="center">ActionID</div>
+                                            <div field="ItemID" width="50" visible="false" headeralign="center" allowsort="true" align="center">ItemID</div>
+                                            <div field="CreateByName" width="80" headeralign="center" allowsort="true" align="center">
+                                                发现人
+                                            </div>
+                                            <div field="ProblemRegionName" width="100" headeralign="center" allowsort="true" align="center">
+                                                区域
+                                            </div>
+                                            <div field="ProblemTypeName" width="100" headeralign="center" allowsort="true" align="center">
+                                                分类
+                                            </div>
+                                            <div field="ProblemDesc" width="200" headeralign="center" allowsort="true" align="left" renderer="onProblemDescRender">
+                                                描述
+                                            </div>
+                                            <div field="Measure" width="200" headeralign="center" allowsort="true" align="left">
+                                                改正措施
+                                            </div>
+                                            <div field="ResponsibleName" width="80" headeralign="center" allowsort="true" align="center">
+                                                责任人
+                                            </div>
+                                            <div field="SubmitDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                                                提交日期
+                                            </div>
+                                            <div field="PlanStartDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                                                计划开始日期
+                                            </div>
+                                            <div field="PlanEndDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                                                计划完成日期
+                                            </div>
+                                            <div field="ActualEndDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                                                实际完成日期
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </form>
+
+</body>
+</html>

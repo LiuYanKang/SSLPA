@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bce561a3dce2495688c8919f562c7427" Name="Diagram1">
+        <EntityTypeShape EntityType="BaseModel.Dic" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseModel.DicItem" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseModel.FunctionDefine" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseModel.OnlineUser" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseModel.Role" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseModel.RoleFuncMap" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseModel.RoleMenuMap" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseModel.UserRole" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseModel.Department" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BaseModel.UserMgrRoom" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BaseModel.UserMgrStation" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BaseModel.Employee" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BaseModel.LoginUser" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BaseModel.Menu" Width="1.5" PointX="2.75" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

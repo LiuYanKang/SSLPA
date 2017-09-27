@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新增职员</title>
+    <script src="../lib/boot.js"></script>
+    <link href="../lib/webloader/webuploader.css" rel="stylesheet" />
+    <script src="../lib/webloader/webuploader.js"></script>
+    <script src="EmployeeInfo.js"></script>
+</head>
+<body>
+    <form id="form1" method="post" enctype="multipart/form-data">
+        <input name="EmpID" class="mini-hidden" />
+        <div style="padding: 20px;">
+            <table class="form">
+                <tr>
+                    <th style="width:80px;">工　　号：</th>
+                    <td style="width: 180px;">
+                        <input id="txtEmpCode" name="EmpCode" class="mini-textbox" style="width: 160px;" emptytext="请输入工号" />
+                    </td>
+                    <th style="width:80px;" rowspan="5">
+                        <span id="filePicker" style="vertical-align:top">证 件 照</span>
+                    </th>
+                    <td rowspan="5">
+                        <input id="hidImg" class="mini-hidden" name="PhotoFile" />
+                        <img id="imgUpload" width="130" height="195" title="证件照" alt="请上传图片" onerror="this.src='../res/emp_header/default.jpg'" />
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:80px;">姓　　名：</th>
+                    <td style="width: 160px;">
+                        <input id="txtName" name="Name" class="mini-textbox" style="width: 160px;" required="true" emptytext="请输入姓名" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th>所属部门：</th>
+                    <td>
+                        <input id="txtDepartmentId" name="DeptID" class="mini-buttonedit" width="160" inputstyle="text-align:left;" emptytext="请选择所属部门" onbuttonclick="onDepartmentId" allowinput="false" showclose="true" required="true" />
+                    </td>
+                </tr>
+                
+
+                <tr>
+                    <th>性　　别：</th>
+                    <td>
+                        <input id="cboGender" name="Gender" class="mini-combobox" style="width: 160px;" textfield="Name" valuefield="Code" emptytext="请选择性别" shownullitem="true" />
+                    </td>
+                </tr>
+                <!--<tr>
+                    <th>登陆账号：</th>
+                    <td>
+                        <input id="txtLoginUser" name="LoginName" class="mini-buttonedit" width="160" inputstyle="text-align:left;" emptytext="请选择登陆账号" onbuttonclick="onLoginName" allowinput="false" showclose="true" />
+                    </td>
+                </tr>-->
+                <tr>
+                    <th> 　NFCID：</th>
+                    <td>
+                        <input id="txtNFCID" name="NFCID" class="mini-textbox" style="width: 160px;" emptytext="请输入NFCID" />
+                    </td>
+                    <!--<th>单位部门：</th>
+                    <td>
+                        <input id="cboDepartment" name="DeptID" class="mini-combobox" style="width: 160px;" textfield="Name" valuefield="DeptID" required="true" emptytext="请选择单位部门" />
+                    </td>-->
+                </tr>
+                <tr>
+                    <th>手机号码：</th>
+                    <td>
+                        <input id="txtTel" name="Tel" class="mini-textbox" style="width: 160px;" maxlength="11" emptytext="请输入手机号码" />
+                    </td>
+                    <th rowspan="2" style="width:80px">备注：</th>
+                    <td rowspan="2">
+                        <input id="txtRemark" name="Remark" class="mini-textarea" style="width:200px; height: 60px;" emptytext="请输入备注 " />
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>EMail：</th>
+                    <td>
+                        <input id="txtEMail" name="EMail" class="mini-textbox" style="width: 160px;" emptytext="请输入EMail"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>产品部门：</th>
+                    <td>
+                        <input id="sPDCode" name="PDCode" class="mini-combobox" textfield="Name" valuefield="PDCode" emptytext="请选择产品部门" style="width: 150px;" required="false" shownullitem="true" />
+                    </td>
+                </tr>
+            </table>
+
+            <div style="text-align: center; padding: 10px;">
+                <a class="mini-button" onclick="onOk" style="width: 80px; margin-right: 20px;"><i class="icon-ok green icon-large"></i>保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i>取消</a>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Department" EntityType="BaseModel.Department" />
+    <EntitySet Name="Dic" EntityType="BaseModel.Dic" />
+    <EntitySet Name="DicItem" EntityType="BaseModel.DicItem" />
+    <EntitySet Name="FunctionDefine" EntityType="BaseModel.FunctionDefine" />
+    <EntitySet Name="LoginUser" EntityType="BaseModel.LoginUser" />
+    <EntitySet Name="Menu" EntityType="BaseModel.Menu" />
+    <EntitySet Name="Role" EntityType="BaseModel.Role" />
+    <EntitySet Name="RoleFuncMap" EntityType="BaseModel.RoleFuncMap" />
+    <EntitySet Name="RoleMenuMap" EntityType="BaseModel.RoleMenuMap" />
+    <EntitySet Name="UserRole" EntityType="BaseModel.UserRole" />
+    <EntitySet Name="OnlineUser" EntityType="BaseModel.OnlineUser" />
+    <EntitySet Name="SMSSend" EntityType="BaseModel.SMSSend" />
+    <EntitySet Name="EmailSend" EntityType="BaseModel.EmailSend" />
+    <EntitySet Name="DepartmentFuncMap" EntityType="BaseModel.DepartmentFuncMap" />
+    <EntitySet Name="DepartmentMenuMap" EntityType="BaseModel.DepartmentMenuMap" />
+    <EntitySet Name="Employee" EntityType="BaseModel.Employee" />
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Name="DeptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="PID" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsDel" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int32" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="ManagerId" Type="Int32" />
+    <Property Name="SN" Type="Int32" />
+    <Property Name="FullDeptID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Dic">
+    <Key>
+      <PropertyRef Name="DicCode" />
+    </Key>
+    <Property Name="DicCode" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DicItem">
+    <Key>
+      <PropertyRef Name="DicCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="DicCode" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="IsSys" Type="Boolean" Nullable="false" />
+    <Property Name="SN" Type="Int32" Nullable="false" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FunctionDefine">
+    <Key>
+      <PropertyRef Name="FuncCode" />
+    </Key>
+    <Property Name="FuncCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ParentCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LoginUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pwd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsDisabled" Type="Boolean" Nullable="false" />
+    <Property Name="IsDel" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuCode" />
+    </Key>
+    <Property Name="MenuCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Visible" Type="Boolean" Nullable="false" />
+    <Property Name="SN" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RoleFuncMap">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="FuncCode" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="FuncCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RoleMenuMap">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="MenuCode" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="MenuCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OnlineUser">
+    <Key>
+      <PropertyRef Name="Ticket" />
+    </Key>
+    <Property Name="Ticket" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="UserType" Type="Int32" Nullable="false" />
+    <Property Name="Terminal" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDis" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SMSSend">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tel" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ResultData" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmailSend">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Receiver" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ResultData" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DepartmentFuncMap">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+      <PropertyRef Name="FuncCode" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <Property Name="FuncCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DepartmentMenuMap">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+      <PropertyRef Name="MenuCode" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <Property Name="MenuCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="NFCID" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="EmpCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="EMail" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsDel" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int32" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="PDCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

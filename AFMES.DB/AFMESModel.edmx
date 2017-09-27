@@ -1,0 +1,992 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AFMESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EHS">
+          <Key>
+            <PropertyRef Name="EHSID" />
+          </Key>
+          <Property Name="EHSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Pic" Type="nvarchar" MaxLength="256" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+        </EntityType>
+        <EntityType Name="LineMachineMap">
+          <Key>
+            <PropertyRef Name="MachineID" />
+            <PropertyRef Name="ProLineId" />
+            <PropertyRef Name="PDCode" />
+          </Key>
+          <Property Name="MachineID" Type="int" Nullable="false" />
+          <Property Name="ProLineId" Type="int" Nullable="false" />
+          <Property Name="PDCode" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="SN" Type="int" />
+        </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="MachineID" />
+          </Key>
+          <Property Name="MachineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcID" Type="int" Nullable="false" />
+          <Property Name="DownCodeID" Type="int" />
+          <Property Name="Code" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Speed" Type="float" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="NowStatus" Type="nvarchar" MaxLength="16" />
+          <Property Name="Quality" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="ProductType" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="QualityWarning" Type="nvarchar(max)" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+        </EntityType>
+        <EntityType Name="MachineEHS">
+          <Key>
+            <PropertyRef Name="MachineID" />
+            <PropertyRef Name="EHSID" />
+          </Key>
+          <Property Name="MachineID" Type="int" Nullable="false" />
+          <Property Name="EHSID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductDept">
+          <Key>
+            <PropertyRef Name="PDCode" />
+          </Key>
+          <Property Name="PDCode" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductLine">
+          <Key>
+            <PropertyRef Name="ProLineId" />
+            <PropertyRef Name="PDCode" />
+          </Key>
+          <Property Name="ProLineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PDCode" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="ProLineCode" Type="nvarchar" MaxLength="32" />
+          <Property Name="ProLineName" Type="nvarchar" MaxLength="64" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Weather">
+          <Key>
+            <PropertyRef Name="WID" />
+          </Key>
+          <Property Name="WID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeatherTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Temp" Type="nvarchar" MaxLength="50" />
+          <Property Name="TodayTemp" Type="nvarchar" MaxLength="50" />
+          <Property Name="WeatherInfo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Icon1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Icon2" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WorkProcess">
+          <Key>
+            <PropertyRef Name="ProcID" />
+          </Key>
+          <Property Name="ProcID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="ProcType" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+          <Property Name="PDCode" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="ActionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlanID" Type="int" />
+          <Property Name="AuditDate" Type="datetime" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="32" />
+          <Property Name="AuditArea" Type="nvarchar" MaxLength="16" />
+          <Property Name="State" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+        </EntityType>
+        <EntityType Name="ActionPlan">
+          <Key>
+            <PropertyRef Name="PlanID" />
+          </Key>
+          <Property Name="PlanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpID" Type="int" Nullable="false" />
+          <Property Name="StartPlanDate" Type="date" Nullable="false" />
+          <Property Name="EndPlanDate" Type="date" Nullable="false" />
+          <Property Name="AuditType" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="IsComplete" Type="bit" Nullable="false" />
+          <Property Name="ActionTime" Type="datetime" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+          <Property Name="BanCi" Type="int" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaId" />
+            <PropertyRef Name="PDCode" />
+          </Key>
+          <Property Name="AreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PDCode" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="AreaCode" Type="nvarchar" MaxLength="32" />
+          <Property Name="AreaName" Type="nvarchar" MaxLength="64" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+        </EntityType>
+        <EntityType Name="AreaMachineMap">
+          <Key>
+            <PropertyRef Name="MachineID" />
+            <PropertyRef Name="AreaId" />
+          </Key>
+          <Property Name="MachineID" Type="int" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AuditItem">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuditType" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="ItemRegion" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="ItemType" Type="nvarchar" MaxLength="16" />
+          <Property Name="Description" Type="nvarchar" MaxLength="128" />
+          <Property Name="SN" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+          <Property Name="MCode" Type="nvarchar" MaxLength="64" />
+          <Property Name="IsInputData" Type="bit" />
+        </EntityType>
+        <EntityType Name="EmpAuditArea">
+          <Key>
+            <PropertyRef Name="EmpID" />
+            <PropertyRef Name="AuditArea" />
+          </Key>
+          <Property Name="EmpID" Type="int" Nullable="false" />
+          <Property Name="AuditArea" Type="nvarchar" MaxLength="16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="int" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="SuperiorID" Type="int" />
+          <Property Name="IsResponsible" Type="bit" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+          <Property Name="AuditType" Type="nvarchar" MaxLength="16" />
+          <Property Name="Section" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LPAActionResult">
+          <Key>
+            <PropertyRef Name="ActionID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="Result" Type="int" Nullable="false" />
+          <Property Name="EnterNum" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="PlanAreaMap">
+          <Key>
+            <PropertyRef Name="PlanID" />
+            <PropertyRef Name="AreaId" />
+          </Key>
+          <Property Name="PlanID" Type="int" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Problem">
+          <Key>
+            <PropertyRef Name="ProbID" />
+          </Key>
+          <Property Name="ProbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionID" Type="int" />
+          <Property Name="ItemID" Type="int" />
+          <Property Name="ProblemRegion" Type="int" Nullable="false" />
+          <Property Name="ProblemType" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="MachineID" Type="int" />
+          <Property Name="Responsible" Type="int" Nullable="false" />
+          <Property Name="ProblemDesc" Type="nvarchar" MaxLength="512" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="PlanStartDate" Type="date" />
+          <Property Name="PlanEndDate" Type="date" />
+          <Property Name="ActualEndDate" Type="datetime" />
+          <Property Name="Measure" Type="nvarchar" MaxLength="512" />
+          <Property Name="State" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="Progress" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+          <Property Name="ImproveAdvice" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ProblemLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProbID" Type="int" Nullable="false" />
+          <Property Name="PlanEndDate" Type="date" />
+          <Property Name="NewPlanEndDate" Type="date" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProblemPic">
+          <Key>
+            <PropertyRef Name="PicID" />
+          </Key>
+          <Property Name="PicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProbID" Type="int" Nullable="false" />
+          <Property Name="PicType" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AFMESModelStoreContainer">
+          <EntitySet Name="EHS" EntityType="Self.EHS" Schema="dic" store:Type="Tables" />
+          <EntitySet Name="LineMachineMap" EntityType="Self.LineMachineMap" Schema="dic" store:Type="Tables" />
+          <EntitySet Name="Machine" EntityType="Self.Machine" Schema="dic" store:Type="Tables" />
+          <EntitySet Name="MachineEHS" EntityType="Self.MachineEHS" Schema="dic" store:Type="Tables" />
+          <EntitySet Name="ProductDept" EntityType="Self.ProductDept" Schema="dic" store:Type="Tables" />
+          <EntitySet Name="ProductLine" EntityType="Self.ProductLine" Schema="dic" store:Type="Tables" />
+          <EntitySet Name="Weather" EntityType="Self.Weather" Schema="dic" store:Type="Tables" />
+          <EntitySet Name="WorkProcess" EntityType="Self.WorkProcess" Schema="dic" store:Type="Tables" />
+          <EntitySet Name="Action" EntityType="Self.Action" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="ActionPlan" EntityType="Self.ActionPlan" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="AreaMachineMap" EntityType="Self.AreaMachineMap" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="AuditItem" EntityType="Self.AuditItem" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="EmpAuditArea" EntityType="Self.EmpAuditArea" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="LPAActionResult" EntityType="Self.LPAActionResult" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="PlanAreaMap" EntityType="Self.PlanAreaMap" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="Problem" EntityType="Self.Problem" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="ProblemLog" EntityType="Self.ProblemLog" Schema="lpa" store:Type="Tables" />
+          <EntitySet Name="ProblemPic" EntityType="Self.ProblemPic" Schema="lpa" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AFMESModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AFMESEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EHS" EntityType="AFMESModel.EHS" />
+          <EntitySet Name="LineMachineMap" EntityType="AFMESModel.LineMachineMap" />
+          <EntitySet Name="Machine" EntityType="AFMESModel.Machine" />
+          <EntitySet Name="MachineEHS" EntityType="AFMESModel.MachineEHS" />
+          <EntitySet Name="ProductDept" EntityType="AFMESModel.ProductDept" />
+          <EntitySet Name="ProductLine" EntityType="AFMESModel.ProductLine" />
+          <EntitySet Name="Weather" EntityType="AFMESModel.Weather" />
+          <EntitySet Name="Action" EntityType="AFMESModel.Action" />
+          <EntitySet Name="AreaMachineMap" EntityType="AFMESModel.AreaMachineMap" />
+          <EntitySet Name="EmpAuditArea" EntityType="AFMESModel.EmpAuditArea" />
+          <EntitySet Name="ProblemLog" EntityType="AFMESModel.ProblemLog" />
+          <EntitySet Name="ProblemPic" EntityType="AFMESModel.ProblemPic" />
+          <AssociationSet Name="FK_LINEMACH_REFERENCE_MACHINE" Association="AFMESModel.FK_LINEMACH_REFERENCE_MACHINE">
+            <End Role="Machine" EntitySet="Machine" />
+            <End Role="LineMachineMap" EntitySet="LineMachineMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LINEMACH_REFERENCE_PRODUCTL" Association="AFMESModel.FK_LINEMACH_REFERENCE_PRODUCTL">
+            <End Role="ProductLine" EntitySet="ProductLine" />
+            <End Role="LineMachineMap" EntitySet="LineMachineMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTL_REFERENCE_PRODUCTD" Association="AFMESModel.FK_PRODUCTL_REFERENCE_PRODUCTD">
+            <End Role="ProductDept" EntitySet="ProductDept" />
+            <End Role="ProductLine" EntitySet="ProductLine" />
+          </AssociationSet>
+          <EntitySet Name="Area" EntityType="AFMESModel.Area" />
+          <EntitySet Name="PlanAreaMap" EntityType="AFMESModel.PlanAreaMap" />
+          <EntitySet Name="WorkProcess" EntityType="AFMESModel.WorkProcess" />
+          <EntitySet Name="LPAActionResult" EntityType="AFMESModel.LPAActionResult" />
+          <EntitySet Name="Employee" EntityType="AFMESModel.Employee" />
+          <EntitySet Name="AuditItem" EntityType="AFMESModel.AuditItem" />
+          <EntitySet Name="ActionPlan" EntityType="AFMESModel.ActionPlan" />
+          <EntitySet Name="Problem" EntityType="AFMESModel.Problem" />
+        </EntityContainer>
+        <EntityType Name="EHS">
+          <Key>
+            <PropertyRef Name="EHSID" />
+          </Key>
+          <Property Name="EHSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Pic" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LineMachineMap">
+          <Key>
+            <PropertyRef Name="MachineID" />
+            <PropertyRef Name="ProLineId" />
+            <PropertyRef Name="PDCode" />
+          </Key>
+          <Property Name="MachineID" Type="Int32" Nullable="false" />
+          <Property Name="ProLineId" Type="Int32" Nullable="false" />
+          <Property Name="PDCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="SN" Type="Int32" />
+          <NavigationProperty Name="Machine" Relationship="AFMESModel.FK_LINEMACH_REFERENCE_MACHINE" FromRole="LineMachineMap" ToRole="Machine" />
+          <NavigationProperty Name="ProductLine" Relationship="AFMESModel.FK_LINEMACH_REFERENCE_PRODUCTL" FromRole="LineMachineMap" ToRole="ProductLine" />
+        </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="MachineID" />
+          </Key>
+          <Property Name="MachineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcID" Type="Int32" Nullable="false" />
+          <Property Name="DownCodeID" Type="Int32" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Speed" Type="Double" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="NowStatus" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Quality" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="ProductType" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="QualityWarning" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+          <NavigationProperty Name="LineMachineMap" Relationship="AFMESModel.FK_LINEMACH_REFERENCE_MACHINE" FromRole="Machine" ToRole="LineMachineMap" />
+        </EntityType>
+        <EntityType Name="MachineEHS">
+          <Key>
+            <PropertyRef Name="MachineID" />
+            <PropertyRef Name="EHSID" />
+          </Key>
+          <Property Name="MachineID" Type="Int32" Nullable="false" />
+          <Property Name="EHSID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductDept">
+          <Key>
+            <PropertyRef Name="PDCode" />
+          </Key>
+          <Property Name="PDCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+          <NavigationProperty Name="ProductLine" Relationship="AFMESModel.FK_PRODUCTL_REFERENCE_PRODUCTD" FromRole="ProductDept" ToRole="ProductLine" />
+        </EntityType>
+        <EntityType Name="ProductLine">
+          <Key>
+            <PropertyRef Name="ProLineId" />
+            <PropertyRef Name="PDCode" />
+          </Key>
+          <Property Name="ProLineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PDCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ProLineCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ProLineName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+          <NavigationProperty Name="LineMachineMap" Relationship="AFMESModel.FK_LINEMACH_REFERENCE_PRODUCTL" FromRole="ProductLine" ToRole="LineMachineMap" />
+          <NavigationProperty Name="ProductDept" Relationship="AFMESModel.FK_PRODUCTL_REFERENCE_PRODUCTD" FromRole="ProductLine" ToRole="ProductDept" />
+        </EntityType>
+        <EntityType Name="Weather">
+          <Key>
+            <PropertyRef Name="WID" />
+          </Key>
+          <Property Name="WID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeatherTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Temp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TodayTemp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WeatherInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Icon1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Icon2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="ActionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlanID" Type="Int32" />
+          <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProductName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="AuditArea" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AreaMachineMap">
+          <Key>
+            <PropertyRef Name="MachineID" />
+            <PropertyRef Name="AreaId" />
+          </Key>
+          <Property Name="MachineID" Type="Int32" Nullable="false" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpAuditArea">
+          <Key>
+            <PropertyRef Name="EmpID" />
+            <PropertyRef Name="AuditArea" />
+          </Key>
+          <Property Name="EmpID" Type="Int32" Nullable="false" />
+          <Property Name="AuditArea" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProblemLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProbID" Type="Int32" Nullable="false" />
+          <Property Name="PlanEndDate" Type="DateTime" Precision="0" />
+          <Property Name="NewPlanEndDate" Type="DateTime" Precision="0" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProblemPic">
+          <Key>
+            <PropertyRef Name="PicID" />
+          </Key>
+          <Property Name="PicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProbID" Type="Int32" Nullable="false" />
+          <Property Name="PicType" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_LINEMACH_REFERENCE_MACHINE">
+          <End Type="AFMESModel.Machine" Role="Machine" Multiplicity="1" />
+          <End Type="AFMESModel.LineMachineMap" Role="LineMachineMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Machine">
+              <PropertyRef Name="MachineID" />
+            </Principal>
+            <Dependent Role="LineMachineMap">
+              <PropertyRef Name="MachineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LINEMACH_REFERENCE_PRODUCTL">
+          <End Type="AFMESModel.ProductLine" Role="ProductLine" Multiplicity="1" />
+          <End Type="AFMESModel.LineMachineMap" Role="LineMachineMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductLine">
+              <PropertyRef Name="ProLineId" />
+              <PropertyRef Name="PDCode" />
+            </Principal>
+            <Dependent Role="LineMachineMap">
+              <PropertyRef Name="ProLineId" />
+              <PropertyRef Name="PDCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTL_REFERENCE_PRODUCTD">
+          <End Type="AFMESModel.ProductDept" Role="ProductDept" Multiplicity="1" />
+          <End Type="AFMESModel.ProductLine" Role="ProductLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDept">
+              <PropertyRef Name="PDCode" />
+            </Principal>
+            <Dependent Role="ProductLine">
+              <PropertyRef Name="PDCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaId" />
+            <PropertyRef Name="PDCode" />
+          </Key>
+          <Property Name="AreaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PDCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="AreaCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="AreaName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PlanAreaMap">
+          <Key>
+            <PropertyRef Name="PlanID" />
+            <PropertyRef Name="AreaId" />
+          </Key>
+          <Property Name="PlanID" Type="Int32" Nullable="false" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkProcess">
+          <Key>
+            <PropertyRef Name="ProcID" />
+          </Key>
+          <Property Name="ProcID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ProcType" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+          <Property Name="PDCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LPAActionResult">
+          <Key>
+            <PropertyRef Name="ActionID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="Result" Type="Int32" Nullable="false" />
+          <Property Name="EnterNum" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="Int32" Nullable="false" />
+          <Property Name="Position" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="SuperiorID" Type="Int32" />
+          <Property Name="IsResponsible" Type="Boolean" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+          <Property Name="AuditType" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AuditItem">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuditType" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="ItemRegion" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="ItemType" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SN" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+          <Property Name="MCode" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="IsInputData" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ActionPlan">
+          <Key>
+            <PropertyRef Name="PlanID" />
+          </Key>
+          <Property Name="PlanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpID" Type="Int32" Nullable="false" />
+          <Property Name="StartPlanDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndPlanDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AuditType" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="IsComplete" Type="Boolean" Nullable="false" />
+          <Property Name="ActionTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+          <Property Name="BanCi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Problem">
+          <Key>
+            <PropertyRef Name="ProbID" />
+          </Key>
+          <Property Name="ProbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionID" Type="Int32" />
+          <Property Name="ItemID" Type="Int32" />
+          <Property Name="ProblemRegion" Type="Int32" Nullable="false" />
+          <Property Name="ProblemType" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="MachineID" Type="Int32" />
+          <Property Name="Responsible" Type="Int32" Nullable="false" />
+          <Property Name="ProblemDesc" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanStartDate" Type="DateTime" Precision="0" />
+          <Property Name="PlanEndDate" Type="DateTime" Precision="0" />
+          <Property Name="ActualEndDate" Type="DateTime" Precision="3" />
+          <Property Name="Measure" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Progress" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="Int32" />
+          <Property Name="ImproveAdvice" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AFMESModelStoreContainer" CdmEntityContainer="AFMESEntities">
+          <EntitySetMapping Name="EHS">
+            <EntityTypeMapping TypeName="AFMESModel.EHS">
+              <MappingFragment StoreEntitySet="EHS">
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EHSID" ColumnName="EHSID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LineMachineMap">
+            <EntityTypeMapping TypeName="AFMESModel.LineMachineMap">
+              <MappingFragment StoreEntitySet="LineMachineMap">
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+                <ScalarProperty Name="ProLineId" ColumnName="ProLineId" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Machine">
+            <EntityTypeMapping TypeName="AFMESModel.Machine">
+              <MappingFragment StoreEntitySet="Machine">
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="QualityWarning" ColumnName="QualityWarning" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="Quality" ColumnName="Quality" />
+                <ScalarProperty Name="NowStatus" ColumnName="NowStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Speed" ColumnName="Speed" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DownCodeID" ColumnName="DownCodeID" />
+                <ScalarProperty Name="ProcID" ColumnName="ProcID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MachineEHS">
+            <EntityTypeMapping TypeName="AFMESModel.MachineEHS">
+              <MappingFragment StoreEntitySet="MachineEHS">
+                <ScalarProperty Name="EHSID" ColumnName="EHSID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDept">
+            <EntityTypeMapping TypeName="AFMESModel.ProductDept">
+              <MappingFragment StoreEntitySet="ProductDept">
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductLine">
+            <EntityTypeMapping TypeName="AFMESModel.ProductLine">
+              <MappingFragment StoreEntitySet="ProductLine">
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="ProLineName" ColumnName="ProLineName" />
+                <ScalarProperty Name="ProLineCode" ColumnName="ProLineCode" />
+                <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+                <ScalarProperty Name="ProLineId" ColumnName="ProLineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weather">
+            <EntityTypeMapping TypeName="AFMESModel.Weather">
+              <MappingFragment StoreEntitySet="Weather">
+                <ScalarProperty Name="Icon2" ColumnName="Icon2" />
+                <ScalarProperty Name="Icon1" ColumnName="Icon1" />
+                <ScalarProperty Name="WeatherInfo" ColumnName="WeatherInfo" />
+                <ScalarProperty Name="TodayTemp" ColumnName="TodayTemp" />
+                <ScalarProperty Name="Temp" ColumnName="Temp" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="WeatherTime" ColumnName="WeatherTime" />
+                <ScalarProperty Name="WID" ColumnName="WID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Action">
+            <EntityTypeMapping TypeName="AFMESModel.Action">
+              <MappingFragment StoreEntitySet="Action">
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="AuditArea" ColumnName="AuditArea" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+                <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaMachineMap">
+            <EntityTypeMapping TypeName="AFMESModel.AreaMachineMap">
+              <MappingFragment StoreEntitySet="AreaMachineMap">
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpAuditArea">
+            <EntityTypeMapping TypeName="AFMESModel.EmpAuditArea">
+              <MappingFragment StoreEntitySet="EmpAuditArea">
+                <ScalarProperty Name="AuditArea" ColumnName="AuditArea" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProblemLog">
+            <EntityTypeMapping TypeName="AFMESModel.ProblemLog">
+              <MappingFragment StoreEntitySet="ProblemLog">
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="NewPlanEndDate" ColumnName="NewPlanEndDate" />
+                <ScalarProperty Name="PlanEndDate" ColumnName="PlanEndDate" />
+                <ScalarProperty Name="ProbID" ColumnName="ProbID" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProblemPic">
+            <EntityTypeMapping TypeName="AFMESModel.ProblemPic">
+              <MappingFragment StoreEntitySet="ProblemPic">
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="PicType" ColumnName="PicType" />
+                <ScalarProperty Name="ProbID" ColumnName="ProbID" />
+                <ScalarProperty Name="PicID" ColumnName="PicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="AFMESModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlanAreaMap">
+            <EntityTypeMapping TypeName="AFMESModel.PlanAreaMap">
+              <MappingFragment StoreEntitySet="PlanAreaMap">
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkProcess">
+            <EntityTypeMapping TypeName="AFMESModel.WorkProcess">
+              <MappingFragment StoreEntitySet="WorkProcess">
+                <ScalarProperty Name="PDCode" ColumnName="PDCode" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ProcType" ColumnName="ProcType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ProcID" ColumnName="ProcID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LPAActionResult">
+            <EntityTypeMapping TypeName="AFMESModel.LPAActionResult">
+              <MappingFragment StoreEntitySet="LPAActionResult">
+                <ScalarProperty Name="EnterNum" ColumnName="EnterNum" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="AFMESModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="AuditType" ColumnName="AuditType" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="IsResponsible" ColumnName="IsResponsible" />
+                <ScalarProperty Name="SuperiorID" ColumnName="SuperiorID" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuditItem">
+            <EntityTypeMapping TypeName="AFMESModel.AuditItem">
+              <MappingFragment StoreEntitySet="AuditItem">
+                <ScalarProperty Name="IsInputData" ColumnName="IsInputData" />
+                <ScalarProperty Name="MCode" ColumnName="MCode" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="ItemRegion" ColumnName="ItemRegion" />
+                <ScalarProperty Name="AuditType" ColumnName="AuditType" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActionPlan">
+            <EntityTypeMapping TypeName="AFMESModel.ActionPlan">
+              <MappingFragment StoreEntitySet="ActionPlan">
+                <ScalarProperty Name="BanCi" ColumnName="BanCi" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+                <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+                <ScalarProperty Name="AuditType" ColumnName="AuditType" />
+                <ScalarProperty Name="EndPlanDate" ColumnName="EndPlanDate" />
+                <ScalarProperty Name="StartPlanDate" ColumnName="StartPlanDate" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Problem">
+            <EntityTypeMapping TypeName="AFMESModel.Problem">
+              <MappingFragment StoreEntitySet="Problem">
+                <ScalarProperty Name="ImproveAdvice" ColumnName="ImproveAdvice" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Progress" ColumnName="Progress" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Measure" ColumnName="Measure" />
+                <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+                <ScalarProperty Name="PlanEndDate" ColumnName="PlanEndDate" />
+                <ScalarProperty Name="PlanStartDate" ColumnName="PlanStartDate" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="ProblemDesc" ColumnName="ProblemDesc" />
+                <ScalarProperty Name="Responsible" ColumnName="Responsible" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="ProblemType" ColumnName="ProblemType" />
+                <ScalarProperty Name="ProblemRegion" ColumnName="ProblemRegion" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="ProbID" ColumnName="ProbID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

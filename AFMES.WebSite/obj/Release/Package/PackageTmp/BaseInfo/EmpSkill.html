@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>职员技能</title>
+    <meta charset="utf-8" />
+    <script src="../lib/boot.js"></script>
+    <script src="EmpSkill.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div class="mini-splitter" style="width:100%;height:100%;">
+            <div size="300px;">
+                <div class="mini-toolbar">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="white-space: nowrap; text-align: right;">
+                                <input id="leftKeyword" class="mini-textbox" emptytext="请输入关键字" style="width: 100px;" onenter="dglSearch" />
+                                <a class="mini-button" onclick="dglSearch()"><i class="icon-search green icon-large"></i>查询</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="mini-fit">
+                    <div id="dgleft" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" sizelist=[10,15,30,50,100] pagesize="30" showcolumnsmenu="true"
+                         onselectionchanged="dgleft_selectionchanged" onbeforeload="dgl_BeforeLoad" sortfield="EmpCode" sortorder="asc">
+                        <div property="columns">
+                            <div type="indexcolumn" width="40px"></div>
+                            <div field="EmpID" width="50" visible="false" headeralign="center" align="center">ID</div>
+                            <div field="EmpCode" width="100" headeralign="center" allowsort="true" align="center">
+                                工号
+                            </div>
+                            <div field="Name" width="100" headeralign="center" allowsort="true" align="center">
+                                姓名
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mini-toolbar">
+                    <table>
+                        <tr>
+                            <td style="width: 100%;">
+                                <a class="mini-button" onclick="onAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                                <a class="mini-button" onclick="onEdit"><i class="icon-edit blue icon-large"></i>编辑</a>
+                                <a class="mini-button" onclick="onRemove"><i class="icon-trash red icon-large"></i> 删除</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="mini-fit">
+                    <div id="dgRight" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showpager="false"
+                         onbeforeload="dgRight_BeforeLoad" showcolumnsmenu="true" multiselect="true" sortfield="MachineCode" sortorder="asc">
+                        <div property="columns">
+                            <div type="indexcolumn" width="50px" align="center" headeralign="center"></div>
+                            <div field="MachineID" width="50" visible="false" headeralign="center" align="center">MachineID</div>
+                            <div field="MachineCode" width="100" headeralign="center" align="center">设备代码</div>
+                            <div field="MachineName" width="120" headeralign="center" align="center">设备名称</div>
+                            <div field="SkillLevel" width="150" headeralign="center" align="center" renderer="onLevelRender">技能等级</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

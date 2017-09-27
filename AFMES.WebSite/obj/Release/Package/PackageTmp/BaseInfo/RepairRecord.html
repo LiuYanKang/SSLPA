@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>维修记录</title>
+    <script src="../lib/boot.js"></script>
+    <script src="RepairRecord.js"></script>
+    <style>
+        .form th {
+            width: 75px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" method="post" enctype="multipart/form-data">
+        <div style="padding:40px;">
+            <table class="form">
+                <tr>
+                    <th>设备名称：</th>
+                    <td colspan="5">
+                        <span id="lblMachineID"></span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th style="width:100px;">停机时间：</th>
+                    <td style="width:180px;">
+                        <span id="lblCloseDownTime"></span>
+                    </td>
+                    <th style="width: 100px;">故障类型：</th>
+                    <td style="width: 180px;">
+                        <span id="lblTroubleType"></span>
+                    </td>
+                    <th style="width: 100px;">提 交 人：</th>
+                    <td style="width: 180px;">
+                        <span id="lblSubmitPerson"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>故 障 码：</th>
+                    <td style="">
+                        <span id="lblTroubleCode"></span>
+                    </td>
+                    <th>现场记录：</th>
+                    <td style="">
+                        <span id="lblMemo"></span>
+                    </td>
+                    <th>维修结果：</th>
+                    <td>
+                        <span id="lblRepairResult"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>维修开始时间：</th>
+                    <td>
+                        <span id="lblRepairStartTime"></span>
+                    </td>
+                    <th>维修完成时间：</th>
+                    <td>
+                        <span id="lblRepairFinishTime"></span>
+                    </td>
+                    <th>维 修 人：</th>
+                    <td>
+                        <span id="lblRepairPerson"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>确 认 人：</th>
+                    <td>
+                        <span id="lblConfirmPerson"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

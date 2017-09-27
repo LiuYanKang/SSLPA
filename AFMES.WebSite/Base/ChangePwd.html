@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>修改密码</title>
+    <script src="../lib/boot.js"></script>
+</head>
+<body>
+    <form id="form1" method="post">
+        <table class="form">
+            <tr>
+                <th style="width:80px;">原密码：</th>
+                <td>
+                    <input id="txtOldPwd" name="oldPwd" class="mini-password" emptytext="请输入原始密码" vtype="rangeChar:6,20" maxlength="20" required="true" style="width:200px" />
+                </td>
+            </tr>
+            <tr>
+                <th>新密码：</th>
+                <td>
+                    <input id="txtNewPwd" name="newPwd" class="mini-password" emptytext="请输入新密码" vtype="rangeChar:6,20" maxlength="20" required="true" style="width:200px" />
+                </td>
+            </tr>
+            <tr>
+                <th>新密码：</th>
+                <td>
+                    <input class="mini-password" maxlength="20" required="true" emptytext="请再输入一遍新密码" vtype="rangeChar:6,20" maxlength="20" required="true" style="width:200px" onvalidation="onNewPwdValidation" />
+                </td>
+            </tr>
+        </table>
+        <div style="text-align:center;padding:10px;">
+            <a class="mini-button" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+            <a class="mini-button" onclick="onCancel" style="width:80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+        </div>
+    </form>
+    <script>
+
+        var form, txtOldPwd, txtNewPwd;
+
+        $.page_load = function () {
+            form = new mini.Form("form1");
+            txtOldPwd = mini.get('txtOldPwd');
+            txtNewPwd = mini.get('txtNewPwd');
+
+            txtOldPwd.focus();
+        };
+
+
+        function onOk(e) {
+            var obj = getData();
+
+            form.validate();
+            if (form.isValid() == false) return;
+
+            $.srv("Base", "ChangePwd", {
+                data: obj,
+                success: function (data) {
+                    CloseWindow("save");
+                }
+            });
+        }
+        function onCancel(e) {
+            CloseWindow("cancel");
+        }
+
+        function getData() {
+            var obj = form.getData();
+            return obj
+        }
+        function onNewPwdValidation(e) {
+            if (e.isValid) {
+                if (e.value != txtNewPwd.getValue()) {
+                    e.errorText = "两次密码输入不同";
+                    e.isValid = false;
+                    txtNewPwd.focus();
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

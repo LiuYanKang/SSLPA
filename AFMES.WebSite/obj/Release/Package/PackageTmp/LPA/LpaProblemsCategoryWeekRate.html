@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>分层审核问题分类(周)</title>
+    <meta charset="utf-8" />
+    <script src="../lib/boot.js"></script>
+    <script src="../lib/echarts/echarts.min.js"></script>
+    <script src="LpaProblemsCategoryWeekRate.js"></script>
+</head>
+<body>
+
+    <div class="mini-toolbar">
+        <table>
+            <tr>
+                <td style="width: 100%;">
+                    年份：<input id="cboYear" class="mini-combobox" style="width: 80px;" textfield="Name" valuefield="Code"
+                              emptytext="年份" allowinput="false" onvaluechanged="search" />
+                </td>
+                <td style="white-space: nowrap;">
+                    <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit">
+        <div id="divChart" style="width: 100%;height:700px;"></div>
+    </div>
+</body>
+</html>

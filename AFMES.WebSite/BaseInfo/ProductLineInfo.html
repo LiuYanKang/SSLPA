@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>产线新增/编辑页面</title>
+    <script src="../lib/boot.js"></script>
+    <script src="ProductLineInfo.js"></script>
+</head>
+<body>
+    <form id="form1">
+        <div style="padding: 20px;">
+            <input name="ProLineId" class="mini-hidden"/>
+            <table class="form">
+                <tr>
+                    <th>产品部门：</th>
+                    <td>
+                        <input id="sPDCode" name="PDCode" class="mini-combobox" textfield="Name" valuefield="PDCode" emptytext="请选择产品部门" style="width: 150px;" required="true" shownullitem="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>代    码：</th>
+                    <td>
+                        <input name="ProLineCode" class="mini-textbox" emptytext="请输入产线代码" style="width: 120px;" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>名    称：</th>
+                    <td>
+                        <input name="ProLineName" class="mini-textbox" emptytext="请输入产线名称" style="width: 120px;" required="true"/>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="mini-toolbar">
+            <table>
+                <tr>
+                    <td style="width: 100%;">
+                        <a class="mini-button" onclick="onMachine"><i class="icon-plus-sign green icon-large"></i> 新增设备</a>
+                        <a class="mini-button" plain="true"><i class="icon-large red icon-exclamation-sign"></i> 拖拽序号修改排序</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="height:100%" fitcolumns="true" showcolumnsmenu="true" allowCellWrap="true"
+                  ondrop="datagrid_drop" sortfield="SN" sortorder="asc"  allowdrag="true" allowdrop="true" showpager="false">
+                <div property="columns">
+                    <div type="indexcolumn" width="40px"></div>
+                    <!--<div type="checkcolumn"></div>-->
+                    <div field="MachineID" width="50" visible="false" headeralign="center" align="center">MachineID</div>
+                    <div field="Name" width="80" headeralign="center" allowsort="true" align="left">
+                        名称
+                    </div>
+                    <div field="Code" width="60" headeralign="center" allowsort="true" align="center">
+                        代码
+                    </div>
+                    <div field="WorkProcessName" width="60" headeralign="center" allowsort="true" align="center">
+                        工序
+                    </div>
+                    <div field="SN" width="60" headeralign="center" allowsort="true" align="center">
+                        排序
+                    </div>
+                    <div field="" name="" width="100" headeralign="center" align="center" renderer="onDeleteRenderer">删除</div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; padding: 10px;">
+            <a class="mini-button" id="btnOk" onclick="onOk" style="width: 80px; margin-right: 20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+            <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+        </div>
+    </form>
+</body>
+</html>

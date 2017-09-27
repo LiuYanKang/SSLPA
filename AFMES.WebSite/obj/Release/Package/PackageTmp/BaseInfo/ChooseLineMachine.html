@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>选择产线设备</title>
+    <script src="../lib/boot.js"></script>
+    <script src="ChooseLineMachine.js"></script>
+</head>
+<body>
+    <form id="form1" method="post">
+        <div class="mini-toolbar" style="height: 34px;">
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:100%;">
+                        <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                        <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                    </td>
+                    <td style="white-space:nowrap;">
+                        <a class="mini-button" onclick="onOk()"><i class="icon-ok green icon-large"></i> 确定</a>
+                        <a class="mini-button" onclick="onCancel()"><i class="icon-remove red icon-large"></i> 取消</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showcolumnsmenu="true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="ProLineId" sortorder="ASC" multiselect="false" allowunselect="true">
+                <div property="columns">
+                    <div type="indexcolumn" width="40"></div>
+                    <div type="checkcolumn" width="50"></div>
+                    <div field="ProLineId" width="60" visible="false" headeralign="center" align="center">ProLineId</div>
+                    <div field="ProLineCode" width="100" headeralign="center" allowsort="true" align="center">
+                        产线代码
+                    </div>
+                    <div field="ProLineName" width="100" headeralign="center" allowsort="true" align="center">
+                        产线名称
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            multiSelect = $.request('multiSelect');
+            $('#datagrid').attr('multiSelect', multiSelect == "1" ? "true" : "false");
+        </script>
+    </form>
+</body>
+</html>
