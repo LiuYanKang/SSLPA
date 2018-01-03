@@ -2763,6 +2763,7 @@
     <None Include="Properties\PublishProfiles\GuXiong.pubxml" />
     <None Include="Properties\PublishProfiles\lidm.pubxml" />
     <None Include="Properties\PublishProfiles\liuyk.pubxml" />
+    <None Include="Properties\PublishProfiles\lpa.pubxml" />
     <None Include="Properties\PublishProfiles\lyk.pubxml" />
     <None Include="Properties\PublishProfiles\T440.pubxml" />
     <Content Include="upload\upload.ashx" />

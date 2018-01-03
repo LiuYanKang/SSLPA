@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="ProbPicInfo.js"></script>
+    <link href="../lib/webloader/webuploader.css" rel="stylesheet" />
+    <script src="../lib/webloader/webuploader.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post" style="height:auto;width:auto;">
+        <input name="PicID" class="mini-hidden" />
+        <div style="padding:20px;">
+            <table class="form" style="width:100%;">
+                <tr>
+                    <th></th>
+                    <td>
+                        <div style="float: left; width: 100px; text-align: center; padding-top: 30px;">
+                            <div id="filePicker">上传图片</div>
+                            <p>建议512*274像素</p>
+                        </div>
+                        <input id="hidImg" class="mini-hidden" name="FileName" />
+                        <img id="imgUpload" style="float: right;" width="512" height="274" title="问题图片" alt="请上传问题图片" />
+                    </td>
+                </tr>
+            </table>
+
+            <div style="text-align:center;padding:10px;">
+                <a class="mini-button" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i>保存</a>
+                <a class="mini-button" onclick="onCancel" style="width:80px;"><i class="icon-remove red icon-large"></i>取消</a>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

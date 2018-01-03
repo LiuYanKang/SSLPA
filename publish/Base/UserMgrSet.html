@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>站厅权限管理 </title>
+    <meta charset="utf-8" />
+    <script src="../lib/boot.js"></script>
+    <script src="UserMgrSet.js"></script>
+</head>
+<body>
+    <form id="form1" method="post">
+        <input id="userID" name="UserID" class="mini-hidden" />
+        <div>
+            <label style="margin-left:20px;">姓 名：</label><span id="userName" style="margin-right:20px;"></span>
+            <label>账 号：</label><span id="loginName" style=""></span>
+            <input class="mini-checkbox" id="chkAll" onclick="CheckAll();" text="全选" style="margin-left:20px;" />
+        </div>
+
+        <div id="cbl" class="mini-checkboxlist" repeatitems="3" repeatlayout="table" repeatdirection="horizontal"
+             textfield="Name" valuefield="id" value="">
+        </div>
+
+        <div style="text-align:center;padding:10px;">
+            <a class="mini-button" onclick="save()" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i>保存</a>
+            <a class="mini-button" onclick="onCancel" style="width:80px;"><i class="icon-remove red icon-large"></i>取消</a>
+        </div>
+    </form>
+</body>
+</html>

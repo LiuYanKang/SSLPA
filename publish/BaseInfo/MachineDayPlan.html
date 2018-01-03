@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>计划日产量</title>
+    <script src="../lib/boot.js"></script>
+    <script src="MachineDayPlan.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div class="mini-toolbar">
+            <table>
+                <tr>
+                    <td style="width: 100%;">
+                        <a class="mini-button" onclick="onAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                        <a class="mini-button" onclick="onBatchAdd"><i class="icon-plus-sign green icon-large"></i> 批量新增</a>
+                        <a class="mini-button" onclick="onEdit"><i class="icon-edit blue icon-large"></i>编辑</a>
+                        <a class="mini-button" onclick="onRemove"><i class="icon-trash red icon-large"></i> 删除</a>
+                    </td>
+                    <td style="white-space: nowrap;">
+                        <input id="cboMachine" class="mini-combobox" style="width: 100px;" allowinput="false" textfield="Name" valuefield="MachineID" onvaluechanged="search"
+                               emptytext="请选择设备" shownullitem="true" />
+                        <input id="txtBeginDate" class="mini-datepicker" width="120px" emptytext="日期（起）" value="" valuetype="date" onvaluechanged="search" allowinput="false" />
+                        <input id="txtEndDate" class="mini-datepicker" width="120px" emptytext="日期（止）" value="" valuetype="date" onvaluechanged="search" allowinput="false" />
+
+                        <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                        <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " showpager="false" fitcolumns="false" pagesize="15" showcolumnsmenu="true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="PlanDate" sortorder="desc">
+                <div property="columns">
+                    <div type="indexcolumn" width="40px">序号</div>
+                    <div field="MachineName" width="100" headeralign="center" allowsort="true" align="center">
+                        设备
+                    </div>
+                    <div field="PlanDate" width="100" headeralign="center" allowsort="true" align="center" renderer="mini.onDateRender">
+                        日期
+                    </div>
+                    <div field="QTY" width="100" headeralign="center" allowsort="true" align="center">
+                        计划产量
+                    </div>
+                    <div field="Remark" width="250" headeralign="center" allowsort="true" align="left">
+                        备注
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

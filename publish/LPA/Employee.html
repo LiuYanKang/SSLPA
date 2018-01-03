@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="Employee.js"></script>
+</head>
+<body>
+
+    <div class="mini-toolbar">
+        <table>
+            <tr>
+                <td style="width: 100%;">
+                    <a class="mini-button" onclick="EmployeeAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                    <a class="mini-button" onclick="EmployeeEdit"><i class="icon-edit blue icon-large"></i>编辑</a>
+                    <a class="mini-button" onclick="EmployeeRemove"><i class="icon-trash red icon-large"></i> 删除</a>
+                </td>
+                <td style="white-space: nowrap;">
+                    <!--<input id="cboIsResponsible" class="mini-combobox" style="width: 80px;" data="[{id:0,text:'否'},{id:1,text:'是'}]"
+                           emptytext="是否责任人" shownullitem="true" allowinput="false" onvaluechanged="search" />-->
+                    <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                    <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit">
+        <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " fitcolumns="false" pagesize="20" showcolumnsmenu="true"
+             onbeforeload="datagrid_BeforeLoad" sortfield="EmpID" sortorder="desc">
+            <div property="columns">
+                <div type="indexcolumn" width="40px"></div>
+                <div field="EmpID" width="50" visible="false" headeralign="center" align="center">EmpID</div>
+                <div field="EmpName" width="100" headeralign="center" allowsort="true" align="center">
+                    员工姓名
+                </div>
+                <div field="AuditTypeName" width="100" headeralign="center" allowsort="true" align="center">
+                    审核类型
+                </div>
+                <!--<div field="Position" width="100" headeralign="center" allowsort="true" align="center">
+                    职位
+                </div>
+                <div field="SuperiorID" width="100" visible="false" headeralign="center" allowsort="true" align="center">
+                    上级编号
+                </div>
+                <div field="SuperiorName" width="150" headeralign="center" allowsort="true" align="center">
+                    上级领导
+                </div>-->
+                <div field="AuditAreaSummary" width="300" headeralign="center" allowsort="true" align="left">
+                    审核区域
+                </div>
+                <!--<div field="IsResponsible" width="100" headeralign="center" allowsort="true" align="center" renderer="onIsResponsible">
+                    是否可为责任人
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

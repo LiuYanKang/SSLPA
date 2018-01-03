@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>质量释放项目维护</title>
+    <script src="../lib/boot.js"></script>
+    <script src="QualitCheckInfoInfo.js"></script>
+</head>
+<body>
+
+    <form id="form1">
+        <div style="padding:20px;">
+            <input id="hidItemID" name="ItemID" class="mini-hidden" />
+            <input id="hidProcessID" name="ProcessID" class="mini-hidden" />
+            <input id="hidQCInfoID" name="QCInfoID" class="mini-hidden" />
+            <table class="form">
+                <tr>
+                    <th style="width: 80px">物料料号：</th>
+                    <td style="width: 200px">
+                        <span id="lblPN"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 80px">工序名称：</th>
+                    <td style="width: 200px">
+                        <span id="lblProcName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 80px">项目名称：</th>
+                    <td style="width: 200px">
+                        <input name="Content" class="mini-textbox" emptytext="请输入项目名称" style="width: 180px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 80px">类　　型：</th>
+                    <td style="width: 200px">
+                        <input id="rdoType" name="InfoType" class="mini-radiobuttonlist" textfield="text" valuefield="id" data="[{id:1,text:'数值'},{id:2,text:'布尔值'}]"
+                               value="1" onvaluechanged="onValuechanged" />
+                    </td>
+                </tr>
+                <tr id="hidZhi">
+                    <th>值 范 围：</th>
+                    <td>
+                        <input id="txtMinValue" name="MinValue" class="mini-textbox" emptytext="最小值" vtype="float" style="width: 80px;" onvaluechanged="onMinMaxChanged" /> ~
+                        <input id="txtMaxValue" name="MaxValue" class="mini-textbox" emptytext="最大值" vtype="float" style="width: 80px;" onvaluechanged="onMinMaxChanged" />
+                    </td>
+                </tr>
+                <!--<tr id="hidType" style="display:none;">
+                    <th>布 尔 值：</th>
+                    <td>
+                        <input id="cboQualitCheckType" class="mini-combobox" emptytext="请选择布尔值" textfield="text" valuefield="id"
+                               data="[{id:1,text:'是'},{id:2,text:'否'}]" allowinput="false" style="width: 100px;" />
+                    </td>
+                </tr>-->
+            </table>
+            <div style="text-align: center; padding: 10px;">
+                <a class="mini-button" id="btnOk" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

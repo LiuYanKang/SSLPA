@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="ProblemInfoUpdate.js"></script>
+</head>
+<body>
+
+    <form id="form1">
+        <div style="padding:20px;">
+            <table class="form">
+                <tr>
+                    <th>发 现 人：</th>
+                    <td>
+                        <span id="lblCreateby"></span>
+                    </td>
+                    <th>责 任 人：</th>
+                    <td>
+                        <input id="txtResponsible" name="Responsible" class="mini-buttonedit" width="120" inputstyle="text-align:left;" emptytext="请选择责任人"
+                               onbuttonclick="onChooseEmp" allowinput="false" showclose="true" oncloseclick="mini.onCloseClick" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>问题区域：</th>
+                    <td>
+                        <!--<input id="cboProblemRegion" name="ProblemRegion" class="mini-combobox" textfield="Name" valuefield="Code" emptytext="请选择问题区域" style="width: 150px;" required="true"/>-->
+                        <input id="cboProblemRegion" name="ProblemRegion" class="mini-combobox" textfield="AreaName" valuefield="AreaId" emptytext="请选择问题区域" style="width: 150px;" required="true" />
+                    </td>
+                    <th>问题分类：</th>
+                    <td>
+                        <input id="cboProblemType" name="ProblemType" class="mini-combobox" textfield="Name" valuefield="Code" emptytext="请选择问题分类" style="width: 120px;" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>问题提交时间：</th>
+                    <td>
+                        <input id="txtSubmitDate" name="SubmitDate" class="mini-datepicker" format="yyyy-MM-dd H:mm" value="new Date()" timeformat="H:mm"
+                               showtime="true" showokbutton="true" showclearbutton="false" style="width: 150px;" required="true" allowinput="false" />
+                    </td>
+                    <th>问题设备：</th>
+                    <td>
+                        <input id="cboMachine" name="MachineID" class="mini-combobox" textfield="Name" valuefield="MachineID" emptytext="请选择问题设备" style="width: 120px;" required="false" shownullitem="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>计划开始日期：</th>
+                    <td>
+                        <input id="txtPlanStartDate" name="PlanStartDate" class="mini-datepicker" format="yyyy-MM-dd" allowinput="false" required="true" />
+                    </td>
+                    <th>计划完成日期：</th>
+                    <td>
+                        <input id="txtPlanEndDate" name="PlanEndDate" class="mini-datepicker" format="yyyy-MM-dd" required="true"
+                               style="width: 120px;" allowinput="false" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>实际完成日期：</th>
+                    <td>
+                        <input id="txtActualEndDate" name="ActualEndDate" class="mini-datepicker" format="yyyy-MM-dd" allowinput="false" />
+                    </td>
+                    <th>完成进度：</th>
+                    <td>
+                        <input id="txtProgress" name="Progress" class="mini-combobox" style="width:105px;" textField="Name" valueField="Code" emptyText="请选择..."
+                               value="0" required="true" allowInput="false" /> %
+                    </td>
+                </tr>
+                <!--<tr>
+                    <th>照片类型：</th>
+                    <td>
+                        <input id="cboPicType" name="PicType" class="mini-combobox" textfield="Name" valuefield="Code" emptytext="请选择照片类型" style="width: 120px;" required="true" />
+                    </td>
+                </tr>-->
+                <tr>
+                    <td colspan="4">
+                        <div id="tabs1" class="mini-tabs" style="width: 600px; height: 260px">
+                                <div title="问题描述">
+                                    <input name="ProblemDesc" class="mini-textarea" emptytext="请输入改正措施" style="width: 100%; height: 100%;" />
+                                </div>
+                                <div title="发现时照片">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 100%;">
+                                                <a class="mini-button" onclick="onAddProbPicBefore"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                                                <a class="mini-button" onclick="onRemoveProbPicBefore"><i class="icon-trash red icon-large"></i> 删除</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="mini-fit">
+                                        <div id="dgProbBefore" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showpager="false"
+                                             showcolumnsmenu="true" sortfield="PicID" sortorder="asc" allowdrag="true" allowdrop="true">
+                                            <div property="columns">
+                                                <div type="indexcolumn" width="40px"></div>
+                                                <div field="PicID" width="50" visible="false" headeralign="center" align="center">PicID</div>
+                                                <div field="FileName" width="180" headeralign="center" allowsort="true" align="center" renderer="onFileNameRender">文件名</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div title="整改后照片">
+                                <table>
+                                    <tr>
+                                        <td style="width: 100%;">
+                                            <a class="mini-button" onclick="onAddProbPicAfter"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                                            <a class="mini-button" onclick="onRemoveProbPicAfter"><i class="icon-trash red icon-large"></i> 删除</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="mini-fit">
+                                    <div id="dgProbAfter" class="mini-datagrid" style="width: 100%; height: 100%; border: hidden" fitcolumns="false" showpager="false"
+                                         showcolumnsmenu="true" sortfield="PicID" sortorder="asc" allowdrag="true" allowdrop="true">
+                                        <div property="columns">
+                                            <div type="indexcolumn" width="40px"></div>
+                                            <div field="PicID" width="50" visible="false" headeralign="center" align="center">PicID</div>
+                                            <div field="FileName" width="180" headeralign="center" allowsort="true" align="center" renderer="onFileNameRender">文件名</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div title="改正措施">
+                                <input name="Measure" class="mini-textarea" emptytext="请输入改正措施" style="width: 100%; height: 100%;"/>
+                            </div>
+                            <div title="备注" style="display:none">
+                                <input name="Remark" class="mini-textarea" emptytext="请输入备注" style="width: 100%; height: 100%;"/>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center; padding: 10px;">
+                <a class="mini-button" id="btnOk" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

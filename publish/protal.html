@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LPA</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <script src="lib/boot.js"></script>
+    <link href="protal.css" rel="stylesheet" />
+    <script src="protal.js"></script>
+</head>
+<body>
+    <div id="layout1" class="mini-layout" style="width:100%;height:100%;">
+        <div region="north" showheader="false" height="65" splitsize="0" cls="navbar">
+            <h1 class="navbar-brand" title="LPA">LPA</h1>
+            <ul class="navbar-menu white">
+                <li class="userinfo">
+                    <a href="javascript:changePwd()" class="icon-user icon-2x white" title="修改密码" ></a> <span id="lblUsername"></span>
+                    <a id="lblDefaultRoom">欢迎登陆系统</a>
+                </li>
+                <li class="logout last">
+                    <a class="white" href="javascript:onLogout()" title="注销"><i class="icon-signout icon-4x"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div region="west" title="系统菜单" width="200" showspliticon="true" bodystyle="padding-left:1px;">
+            <div id="treemenu" class="mini-tree" expandonload="0" onnodeclick="onNodeSelect" showtreeicon="false"
+                 textfield="text" idfield="MenuCode" parentfield="PCode" style="background-color: #fff; " maskonload="false">
+            </div>
+        </div>
+        <div region="center" showheader="false" splitsize="0" bodystyle="padding-left:1px;" style="border: 0;">
+            <div id="mainTabs" class="mini-tabs" activeindex="0" style="width: 100%; height: 100%; border: 0;" bodystyle="padding:1px;"
+                 onactivechanged="onTabsActiveChanged" contextmenu="#tabsMenu">
+                <div title="主页" name="homePage" url="HomePage.html">
+                </div>
+            </div>
+            <ul id="tabsMenu" class="mini-contextmenu" onbeforeopen="onBeforeOpen">
+                <li name="refresh" onclick="onItemClick">刷新</li>
+                <li class="separator"></li>
+                <li name="close" onclick="onItemClick">关闭</li>
+                <li name="closeAll" onclick="onItemClick">全部关闭</li>
+                <li name="closeAllWithoutCurrent" onclick="onItemClick">除此之外全部关闭</li>
+                <li class="separator"></li>
+                <li name="closeLeftWithoutCurrent" onclick="onItemClick">关闭左侧标签</li>
+                <li name="closeRightWithoutCurrent" onclick="onItemClick">关闭右侧标签</li>
+                <li class="separator"></li>
+                <li name="cancel" onclick="onItemClick">取消</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

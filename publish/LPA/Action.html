@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="Action.js"></script>
+</head>
+<body>
+
+    <div class="mini-toolbar">
+        <table>
+            <tr>
+                <td style="width: 100%;">
+                    <a class="mini-button" onclick="ActionRemove"><i class="icon-trash red icon-large"></i> 删除</a>
+                </td>
+                <td style="white-space: nowrap;">
+                    <input id="cboState" class="mini-combobox" style="width: 80px;" textfield="Name" valuefield="Code"
+                           emptytext="审核状态" shownullitem="true" allowinput="false" onvaluechanged="search" />
+                    <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                    <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit">
+        <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " fitcolumns="false" pagesize="20" showcolumnsmenu="true"
+             onbeforeload="datagrid_BeforeLoad" sortfield="AuditDate" sortorder="desc">
+            <div property="columns">
+                <div type="indexcolumn" width="40px"></div>
+                <div field="ActionID" width="50" visible="false" headeralign="center" align="center">ActionID</div>
+                <div field="PlanID" width="50" visible="false" headeralign="center" align="center">PlanID</div>
+                <div field="AuditDate" width="130" headeralign="center" allowsort="true" align="center" renderer="onDetailLink">
+                    执行时间
+                </div>
+                <!--<div field="ProductName" width="100" headeralign="center" allowsort="true" align="center">
+                    产品
+                </div>
+                <div field="AuditArea" width="50" headeralign="center" visible="false" allowsort="true" align="center">
+                    审核区域代码
+                </div>
+                <div field="AuditAreaName" width="100" headeralign="center" allowsort="true" align="center">
+                    审核区域
+                </div>-->
+                <div field="EmpName" width="100" headeralign="center" allowsort="true" align="center">
+                    姓名
+                </div>
+                <div field="StateName" width="100" headeralign="center" allowsort="true" align="center">
+                    状态
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新增设备</title>
+    <script src="../lib/boot.js"></script>
+    <script src="MachineInfo.js"></script>
+</head>
+<body>
+    <form id="form1">
+        <div style="padding:20px;">
+            <input name="MachineID" class="mini-hidden" />
+            <table class="form">
+                <tr>
+                    <th>产品部门：</th>
+                    <td colspan="3">
+                        <!--<input id="cboProductType" name="ProductType" class="mini-combobox" style="width: 150px;" allowinput="false" textfield="Name" valuefield="Code"
+                               emptytext="请选择产品类型" shownullitem="true" required="true"/>-->
+                        <input id="sPDCode" name="ProductType" class="mini-combobox" textfield="Name" valuefield="PDCode" emptytext="请选择产品部门" style="width: 150px;" required="true" shownullitem="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:80px">代　　码：</th>
+                    <td>
+                        <input name="Code" class="mini-textbox" emptytext="设备代码" style="width: 80px;" required="true" />
+                    </td>
+                    <th style="width:80px">名　　称：</th>
+                    <td>
+                        <input name="Name" class="mini-textbox" emptytext="设备名称" style="width: 100px;" required="true" />
+                    </td>
+                </tr>
+                <!--<tr>
+                    <th>处理速度：</th>
+                    <td colspan="3">
+                        <input name="Speed" class="mini-textbox" emptytext="处理速度" value="0" style="width: 100px;" required="true" /> kg/min
+                    </td>
+                </tr>-->
+                <tr>
+                    <th>所属工序：</th>
+                    <td colspan="3">
+                        <input id="cboWorkProcess" name="ProcID" class="mini-combobox" style="width: 200px;" allowinput="false" textfield="Name" valuefield="ProcID"
+                               emptytext="请选择所属工序" shownullitem="true" required="true" />
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center; padding-top: 50px;">
+                <a class="mini-button" id="btnOk" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i> 保存</a>
+                <a class="mini-button" onclick="onCancel" style="width: 80px;"><i class="icon-remove red icon-large"></i> 取消</a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

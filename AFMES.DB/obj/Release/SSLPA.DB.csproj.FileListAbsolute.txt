@@ -10,3 +10,15 @@ C:\开发项目\SSLPA\source\AFMES.DB\bin\Release\zh-Hans\EntityFramework.SqlSer
 C:\开发项目\SSLPA\source\AFMES.DB\obj\Release\SSLPA.DB.csprojResolveAssemblyReference.cache
 C:\开发项目\SSLPA\source\AFMES.DB\obj\Release\SSLPA.DB.dll
 C:\开发项目\SSLPA\source\AFMES.DB\obj\Release\SSLPA.DB.pdb
+C:\Git项目\SSLPA\AFMES.DB\bin\Release\SSLPA.DB.dll.config
+C:\Git项目\SSLPA\AFMES.DB\bin\Release\SSLPA.DB.dll
+C:\Git项目\SSLPA\AFMES.DB\bin\Release\SSLPA.DB.pdb
+C:\Git项目\SSLPA\AFMES.DB\bin\Release\EntityFramework.dll
+C:\Git项目\SSLPA\AFMES.DB\bin\Release\EntityFramework.SqlServer.dll
+C:\Git项目\SSLPA\AFMES.DB\bin\Release\EntityFramework.xml
+C:\Git项目\SSLPA\AFMES.DB\bin\Release\EntityFramework.SqlServer.xml
+C:\Git项目\SSLPA\AFMES.DB\bin\Release\zh-Hans\EntityFramework.resources.dll
+C:\Git项目\SSLPA\AFMES.DB\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\Git项目\SSLPA\AFMES.DB\obj\Release\SSLPA.DB.csprojResolveAssemblyReference.cache
+C:\Git项目\SSLPA\AFMES.DB\obj\Release\SSLPA.DB.dll
+C:\Git项目\SSLPA\AFMES.DB\obj\Release\SSLPA.DB.pdb

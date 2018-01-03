@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>停机记录</title>
+    <script src="../lib/boot.js"></script>
+    <script src="DownCodeRecord.js"></script>
+</head>
+<body>
+    <form id="form1" method="post">
+        <div class="mini-toolbar">
+            <table>
+                <tr><td style="width:100%"></td>
+                    <td style="white-space: nowrap;">
+                        <input id="cboMachineName" class="mini-combobox" style="width: 100px;" textfield="Name" valuefield="MachineID" onvaluechanged="search"
+                               emptytext="设备名称" allowinput="false" shownullitem="true" />
+                        <input id="cboEquipStatusName" class="mini-combobox" style="width: 100px;" popupwidth="150" textfield="Name" valuefield="Code" onvaluechanged="search"
+                               emptytext="设备状态" allowinput="false" shownullitem="true" />
+                        <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                        <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " fitcolumns="false" pagesize="50" showcolumnsmenu="true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="SubmitTime" sortorder="desc">
+                <div property="columns">
+                    <div type="indexcolumn" width="40px">序号</div>
+                    <div field="CloseDownID" width="50" visible="false" headeralign="center" align="center">唯一标识ID</div>
+                    <div field="SubmitTime" width="130" headeralign="center" allowsort="true" align="center" renderer="mini.onDateTime2Render">
+                        提交时间
+                    </div>
+                    <div field="MachineName" name="MachineName" width="70" headeralign="center" allowsort="true" align="center">
+                        设备名称
+                    </div>
+                    <div field="EquipStatusName" name="EquipStatusName" width="90" headeralign="center" allowsort="true" align="center">
+                        设备状态
+                    </div>
+                    <div field="CloseDownCodeName" name="CloseDownCodeName" width="130" headeralign="center" allowsort="true" align="center">
+                        停机原因
+                    </div>
+                    <div field="TroubleTypeName" name="TroubleTypeName" width="70" headeralign="center" allowsort="true" align="center" renderer="onTroTypRenderer">
+                        故障类型
+                    </div>
+                    <div field="SubmitPersonName" name="SubmitPersonName" width="60" headeralign="center" allowsort="true" align="center">
+                        提交人
+                    </div>
+                    <div field="DurationTime" width="90" headeralign="center" allowsort="true" align="center">
+                        停机持续时间
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

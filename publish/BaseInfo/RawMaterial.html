@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>原材料</title>
+    <script src="../lib/boot.js"></script>
+    <script src="RawMaterial.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post">
+        <div class="mini-toolbar">
+            <table>
+                <tr>
+                    <td style="width: 100%;">
+                        <a class="mini-button" onclick="onAdd"><i class="icon-plus-sign green icon-large"></i> 新增</a>
+                        <a class="mini-button" onclick="onEdit"><i class="icon-edit blue icon-large"></i>编辑</a>
+                        <a class="mini-button" onclick="onRemove"><i class="icon-trash red icon-large"></i> 删除</a>
+                        <span class="separator"></span>
+                        <a class="mini-button" onclick="showBarCode"><i class="icon-barcode icon-large"></i> 条码</a>
+                    </td>
+                    <td style="white-space: nowrap;">
+                        <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                        <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mini-fit">
+            <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " fitcolumns="false" pagesize="50" showcolumnsmenu="true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="Code" sortorder="asc">
+                <div property="columns">
+                    <div type="indexcolumn" width="40px">序号</div>
+                    <div field="RawMaterialID" width="50" visible="false" headeralign="center" align="center">原料ID</div>
+                    <div field="Diameter" name="Dismeter" width="70" headeralign="center" allowsort="true" align="center">
+                        线径(mm)
+                    </div>
+                    <div field="Code" name="Code" width="100" headeralign="center" allowsort="true" align="center" renderer="onRawMaterialRenderer">
+                        料号
+                    </div>
+                    <div field="SupplierName" name="SupplierName" width="100" headeralign="center" allowsort="true" align="center">
+                        供应商
+                    </div>
+                    <div field="MinStorage" name="MinStorage" width="100" headeralign="center" allowsort="true" align="center">
+                        最小库存(kg)
+                    </div>
+                    <div field="MaxStorage" name="MaxStorage" width="100" headeralign="center" allowsort="true" align="center">
+                        最大库存(kg)
+                    </div>
+                    <div field="Remark" name="Remark" width="200" headeralign="center" allowsort="true" align="left">
+                        备注
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

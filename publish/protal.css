@@ -1,0 +1,71 @@
+﻿.navbar {
+    background: #FFF;
+    border-bottom: 5px solid #176d43;
+}
+
+.navbar-brand {
+    margin: 0;
+    padding: 0;
+    background: url(img/logo.jpg) no-repeat 0px 8px;
+    width: 400px;
+    height: 60px;
+    text-indent: -9999px;
+    line-height: 35px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: normal;
+    float: left;
+}
+
+.navbar-menu {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .navbar-menu li {
+        float: left;
+        height: 44px;
+        padding: 8px 12px;
+        border-right: solid 1px #FFF;
+    }
+
+        .navbar-menu li.last {
+            border-right: none;
+        }
+
+.userinfo {
+    background-color: #176d43;
+}
+
+    .userinfo a {
+        color: #FFF;
+        text-decoration: none;
+    }
+
+    .userinfo #lblUsername {
+        font-size: 16px;
+        line-height: 20px;
+        font-family: "黑体";
+    }
+
+    .userinfo #lblDefaultRoom {
+        display: block;
+    }
+
+        .userinfo #lblDefaultRoom:hover {
+            text-decoration: underline;
+        }
+
+.logout {
+    background-color: #176d43;
+}
+
+    .logout a {
+        text-decoration: none;
+    }
+
+    .logout:hover {
+        background-color: #499771;
+    }

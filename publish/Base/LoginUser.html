@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="LoginUser.js"></script>
+</head>
+<body>
+
+    <form id="form1" method="post" style="height:auto;width:auto;">
+        <input name="UserID" class="mini-hidden" />
+        <input id="empID" name="EmpID" class="mini-hidden" />
+        <div style="padding:20px;">
+            <table class="form" style="width:100%;">
+                <tr>
+                    <th>账　　号：</th>
+                    <td>
+                        <input id="txtLoginName" name="LoginName" class="mini-textbox" style="width:180px;" emptytext="请输入账号" required="true" />
+                    </td>
+                    <th>密　　码：</th>
+                    <td>
+                        <input id="txtPwd" name="Pwd" class="mini-textbox" style="width:180px;" emptytext="请输入密码" minlength="6" required="true" />
+                    </td>
+                </tr>
+            </table>
+
+            <div style="text-align:center;padding:10px;">
+                <a class="mini-button" onclick="onOk" style="width:80px;margin-right:20px;"><i class="icon-ok green icon-large"></i>保存</a>
+                <a class="mini-button" onclick="onCancel" style="width:80px;"><i class="icon-remove red icon-large"></i>取消</a>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

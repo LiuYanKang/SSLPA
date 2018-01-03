@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../lib/boot.js"></script>
+    <script src="AuditSummary.js"></script>
+</head>
+<body>
+    <div class="mini-toolbar">
+        <table>
+            <tr>
+
+                <td style="white-space: nowrap;">
+                    <input id="cboArea" class="mini-combobox" textfield="AreaName" valuefield="AreaCode" emptytext="请选择区域" style="width: 150px;" onvaluechanged="search" required="false" shownullitem="true" />
+                    <!--<input id="cboArea" class="mini-combobox" style="width: 80px;" textfield="Name" valuefield="Code" emptytext="区域" shownullitem="true" allowinput="false" onvaluechanged="search" />-->
+                    <input id="keyword" class="mini-textbox" emptytext="请输入关键字" style="width: 150px;" onenter="search" />
+                    <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mini-fit">
+    
+        <div id="datagrid" class="mini-datagrid" style="width: 100%; height: 100%; " fitcolumns="false" pagesize="20" showcolumnsmenu="true"
+                 onbeforeload="datagrid_BeforeLoad" sortfield="ActionID" sortorder="desc">
+
+                <div property="columns">
+
+                    <div type="indexcolumn" width="50" headeralign="center"></div>
+                    <div field="ActionID" visible="false" width="80px" headeralign="center" align="center">
+                审核记录ID
+                     </div>
+            <div field="ItemID" visible="false" width="80px" headeralign="center" align="center">
+                检查项ID
+            </div>
+                    <div field="ItemRegionName" width="80px" headeralign="center" align="center">
+                        区域
+                    </div>
+                    <div field="Description" width="300px" headeralign="center" align="left">
+                        描述
+                    </div>
+                    <div field="Result" width="80px" headeralign="center" align="center" renderer="onResult">
+                        审核结果
+                    </div>
+                    <div field="EnterNum" width="80px" headeralign="center" align="center">
+                        录入数值
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

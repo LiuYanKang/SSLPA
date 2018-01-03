@@ -1,0 +1,108 @@
+﻿body, form {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.dark {
+    color: #333 !important;
+}
+
+.white {
+    color: #fff !important;
+}
+
+.red {
+    color: #dd5a43 !important;
+}
+
+.light-red {
+    color: #f77 !important;
+}
+
+.blue {
+    color: #478fca !important;
+}
+
+.light-blue {
+    color: #93cbf9 !important;
+}
+
+.green {
+    color: #69aa46 !important;
+}
+
+.light-green {
+    color: #b0d877 !important;
+}
+
+.orange {
+    color: #ff892a !important;
+}
+
+.light-orange {
+    color: #fcac6f !important;
+}
+
+.orange2 {
+    color: #feb902 !important;
+}
+
+.purple {
+    color: #a069c3 !important;
+}
+
+.pink {
+    color: #c6699f !important;
+}
+
+.pink2 {
+    color: #d6487e !important;
+}
+
+.brown {
+    color: #a52a2a !important;
+}
+
+.grey {
+    color: #777 !important;
+}
+
+.light-grey {
+    color: #bbb !important;
+}
+
+
+
+
+
+.fieldtip {
+    font-size: 12px;
+    color: #F66;
+}
+
+.mini-menuitem-icon {
+    font-size: 1.5em;
+    color: #333;
+}
+
+table.form {
+    width: 100%;
+}
+
+    table.form > tbody > tr > th {
+        padding: 10px 5px 5px 0;
+        vertical-align: top;
+        border-bottom: solid 1px #E3E6E8;
+        text-align: right;
+        font-weight: normal;
+    }
+
+    table.form > tbody > tr > td {
+        padding: 10px 0 5px 5px;
+        vertical-align: top;
+        text-align: left;
+    }

@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LPAWeekOverview</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta charset="utf-8" />
+    <script src="../lib/boot.js"></script>
+    <script src="../lib/bootH5.js"></script>
+    <style>
+        body {
+            background-color: #FFF;
+        }
+
+        table {
+            width: 100%;
+        }
+
+            table tbody tr:nth-child(2n) td {
+                background: #fdfdfd;
+            }
+
+            table thead td {
+                height: 35px;
+                font-size: 20px;
+                border-bottom: solid #6D6D72 1px;
+                /*padding-left: 8px;*/
+                background: #fefefe;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            table tbody td {
+                height: 30px;
+                font-size: 18px;
+                line-height: 15px;
+                border-bottom: solid #FFF 1px;
+                border-right: solid #FFF 1px;
+                /*padding-left: 8px;*/
+                background: #f1f1f1;
+                /*text-align: center;*/
+            }
+
+            table tr {
+                border-left: solid 1px #6D6D72;
+                border-top: solid 1px #6D6D72;
+            }
+
+                table tr th {
+                    background: #FFF;
+                    border-right: solid 1px #6D6D72;
+                    border-bottom: solid 3px #808080;
+                    font-size: 20px;
+                }
+
+                table tr td {
+                    border-right: solid 1px #6D6D72;
+                    border-bottom: solid 1px #6D6D72;
+                }
+
+        /*table tr:nth-child(3n) td {
+            border-bottom: solid 3px #808080;
+        }*/
+
+        .mui-toptitle {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .mui-table-cell {
+            padding: 0 10px;
+        }
+
+        .txtStyle {
+            writing-mode: vertical-lr;
+        }
+
+        .mini-buttonedit-input {
+            height: 22px !important;
+        }
+
+        #divCollapse {
+            right: 1%; /*举例右边3像素*/
+            position: fixed;
+            width: 150px;
+            height: 200px;
+            top: 30%;
+        }
+
+        .mui-col-xs-6 {
+            width: 90%;
+        }
+    </style>
+</head>
+<body anonymous="anonymous">
+    <div>
+        <div class="mini-toolbar">
+            <table>
+                <tr style="background:">
+                    <td style="width: 100%;">
+                        年份：<input id="cboYear" class="mini-combobox" style="width:100px;" textfield="Name" valuefield="Code"
+                                  emptytext="年份" allowinput="false" onvaluechanged="getWeeksearvh" />
+                        周：<input id="cboWeek" class="mini-combobox" style="width: 100px;" textfield="Name" valuefield="Value"
+                                 emptytext="周" allowinput="true" onvaluechanged="search" />
+
+                    </td>
+                    <td style="white-space: nowrap;">
+                        <a class="mini-button" onclick="search()"><i class="icon-search green icon-large"></i>查询</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="jointHtml">
+        </div>
+
+
+    </div>
+
+    <script>
+    //var div = $('#divTableContent');
+    //$('.mui-table', div).hide().first().show();
+    var cboYear, cboWeek;
+    $.page_load = function() {
+        cboYear = mini.get("cboYear");
+        cboWeek = mini.get("cboWeek");
+        $.dic("1021", function(e) { //年份
+            cboYear.set({ data: e });
+        });
+        cboYear.setValue(new Date().getFullYear()); //当前年
+        GetAllWeek();
+        cboWeek.setValue(getYearWeek());
+        search();
+    };
+
+
+    function getYearWeek() {
+        //var date2 = new Date(new Date().getFullYear(), 0, 1);
+        //var day1 = new Date().getDay();
+        //if (day1 == 0) day1 = 7;
+        //var day2 = date2.getDay();
+        //if (day2 == 0) day2 = 7;
+        //d = Math.round((new Date().getTime() - date2.getTime() + (day2 - day1) * (24 * 60 * 60 * 1000)) / 86400000);
+        //var cou = Math.ceil(d / 7);
+        //return cou;
+        return theWeek();
+    }
+
+    function search() {
+        var param = {};
+        var year = cboYear.getValue() == null ? 0 : cboYear.getValue();
+        param.ByYear = year;
+        var week = cboWeek.getValue() == null ? 0 : cboWeek.getValue();
+        param.ByWeek = week;
+        loadData(param);
+    }
+
+    function GetAllWeek() {
+        var year = cboYear.getValue() == null ? 0 : cboYear.getValue();
+        $.srv("LPA", "GetAllWeek", {
+            data: { year: year },
+            success: function (result) {
+                cboWeek.set({ data: result.Data });
+            }
+        });
+    }
+
+    function getWeeksearvh() {
+        GetAllWeek();
+        search();
+    }
+
+    function loadData(param) {
+        $.srv("LPA", "GetLpaOverviewWeek", {
+            data: { param: param },
+            success: function(result) {
+                //var data2 = result.Data.MChemicalsStock;
+                JointHtml(result.Data);
+            }
+        });
+    }
+
+    function JointHtml(data) {
+        var week = cboWeek.getValue() == null ? 0 : cboWeek.getValue();
+        var html = ' <div class="mui-content" id="right_table">' +
+            '<div id="divTableContent"> ' +
+            '<div class="mui-table">' +
+            '<div class="mui-table-cell mui-col-xs-6">' +
+            '<table>' +
+            '<colgroup><col width="10%"/><col width="10%"/><col width="10%"/><col width="10%"/><col width="10%"/><col width="10%"/><col width="10%"/><col width="10%"/><col width="10%"/><col width="10%"/> </colgroup> ' +
+            '<thead>' +
+            '<tr> ' +
+            '<td colspan="1">' +
+            'CW' + week +
+            '</td>' +
+            '<td colspan="9">LPA Implementation Status Overview</td> ' +
+            '</tr>' +
+            '</tr>' +
+            ' <td colspan="1">Section</td>' +
+            '<td colspan="1">Auditor</td>' +
+            '<td colspan="1">Period</td> ' +
+            '<td colspan="7"> ' +
+            '<table>' +
+            '<thead>' +
+            '<tr>' +
+            '<td>Mon</td><td>Tue</td> <td>Wed</td><td>Thu</td> <td>Fri</td><td>Sat</td><td>Sun</td>' +
+            '</tr> ' +
+            '</thead>' +
+            '<tbody> <tr>';
+        //拼接标题这周的日期
+        var weekHtml = '';
+        if (data.WeekList != null) {
+            for (var i = 0; i < data.WeekList.length; i++) {
+                weekHtml += '<td>' + data.WeekList[i] + '</td>';
+            }
+        }
+        html += weekHtml + '</tr></tbody></table></td> </tr></thead>';
+
+        //拼接每组SectionList
+        var sectionHtml = ' <tbody>';
+        if (data.SectionList != null) {
+            for (var i = 0; i < data.SectionList.length; i++) {//遍历每组SectionList
+                if (data.SectionList[i].EachPeopleList == null) {
+                    continue;
+                }
+                var rowlength = data.SectionList[i].EachPeopleList.length;
+                for (var j = 0; j < rowlength; j++) {//遍历一组SectionList的所有人员数据
+                    var eachPeople = data.SectionList[i].EachPeopleList[j];
+                    sectionHtml+= '<tr>';
+                    if (j === 0) {
+                        sectionHtml += '<th rowspan="' + rowlength + '">' + data.SectionList[i].SectionName + '</th>';
+                    }
+                    sectionHtml +='<td>' + eachPeople.Auditor + '</td>' +
+                        '<td>' + eachPeople.Period + '</td>';
+                    if (eachPeople.PeopleWeekState != null) {
+                        var weekState = eachPeople.PeopleWeekState;
+                        for (var k = 0; k < weekState.length; k++) {//遍历一个人的每周状态
+                            var style = GetBackground(weekState[k]);
+                            sectionHtml += '<td ' + style + '></td>';
+                        }
+
+                    }
+                }
+
+                sectionHtml += '</tr>';
+            }
+        }
+        //sectionHtml += '<tr><th rowspan="5">Note</th><td colspan="1" style="background:rgba(132, 197, 5, 1)"></td><td colspan="8">Finished Audit</td></tr>';//2
+        //sectionHtml += '<tr><td colspan="1" style="background:#fdfdfd"></td><td colspan="8">Not Application</td></tr>';//4
+        //sectionHtml += '<tr><td colspan="1" style="background:#71abce"></td><td colspan="8">Planned</td></tr>';//5
+        //sectionHtml += '<tr><td colspan="1" style="background:rgb(251, 255, 0)"></td><td colspan="8">Pending or Onging Audit</td></tr>';//1
+        //sectionHtml += '<tr><td colspan="1" style="background:#ff0000"></td><td colspan="8">Missed Audit</td></tr>';//3
+        sectionHtml += ' </tbody></table></div>   <div id="divCollapse"><table><tbody><tr><td colspan="1" style="background:rgba(132, 197, 5, 1)">Finished Audit</td></tr><tr><td colspan="1" style="background: #fdfdfd">Not Application</td></tr><tr><td colspan="1" style="background:#71abce">Planned</td></tr><tr><td colspan="1" style="background: rgb(251, 255, 0)">Pending or Onging Audit</td></tr><tr><td colspan="1" style="background:#ff0000">Missed Audit</td></tr></tbody></table>     </div></div> </div></div>';
+        html += sectionHtml;
+        $("#jointHtml").html(html);
+    }
+
+    //根据执行状态添加td背景颜色
+    function GetBackground(state) {//1:进行中或待执行,2:已提交,3:未完成,4:无计划,5:有计划
+
+        var backGround = '';
+        switch (state) {
+        case ("1"):
+            backGround = 'style="background:rgb(251, 255, 0)"';
+            break;
+        case ("2"):
+            backGround = 'style="background:rgba(132, 197, 5, 1)"';
+            break;
+        case ("3"):
+            backGround = 'style="background:#ff0000"';
+            break;
+        case ("4"):
+            backGround = 'style="background:#fdfdfd"';
+            break;
+        case ("5"):
+            backGround = 'style="background:#71abce"';
+            break;
+        default:
+            backGround = 'style="background:#fdfdfd"';
+
+        }
+        return backGround;
+    }
+
+    //根据执行状态添加td背景颜色
+    function GetStateMes(state) {//1:进行中或待执行,2:已提交,3:未完成,4:无计划,5:有计划
+
+        var mes = "";
+        switch (state) {
+            case ("1"):
+                mes = "进行中";
+                break;
+            case ("2"):
+                mes = "已提交";
+                break;
+            case ("3"):
+                mes = "未完成";
+                break;
+            case ("4"):
+                mes = "无计划";
+                break;
+            case ("5"):
+                mes = "有计划";
+                break;
+            default:
+                mes = "无计划";
+
+        }
+        return mes;
+    }
+
+
+    function theWeek() {
+        var totalDays = 0;
+        now = new Date();
+        years = now.getYear()
+        if (years < 1000)
+            years += 1900
+        var days = new Array(12);
+        days[0] = 31;
+        days[2] = 31;
+        days[3] = 30;
+        days[4] = 31;
+        days[5] = 30;
+        days[6] = 31;
+        days[7] = 31;
+        days[8] = 30;
+        days[9] = 31;
+        days[10] = 30;
+        days[11] = 31;
+
+        //判断是否为闰年，针对2月的天数进行计算
+        if (Math.round(now.getYear() / 4) == now.getYear() / 4) {
+            days[1] = 29
+        } else {
+            days[1] = 28
+        }
+        if (now.getMonth() == 0) {
+            totalDays = totalDays + now.getDate();
+        } else {
+            var curMonth = now.getMonth();
+            for (var count = 1; count <= curMonth; count++) {
+                totalDays = totalDays + days[count - 1];
+            }
+            totalDays = totalDays + now.getDate();
+        }
+        //得到第几周
+        var week = Math.round(totalDays / 7)+1;
+        return week;
+    }
+
+    </script>
+</body>
+</html>
